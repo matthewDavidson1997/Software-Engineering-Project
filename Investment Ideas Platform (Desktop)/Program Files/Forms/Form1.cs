@@ -30,10 +30,20 @@ namespace Relationship_manager_administration_system
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (lblLoginFail.Visible)
-                lblLoginFail.Visible = false;
-            else
-                lblLoginFail.Visible = true;
+            String role = cbAccountType.Text.ToString();
+            String email = txtEmail.Text.ToString();
+            String password = txtPassword.Text.ToString();
+
+            if (cbAccountType.Text == "Relationship Manager") { 
+                if(RMLoginBackend.rmLoginBackend(role, email, password))
+                {
+                    lblLoginFail.Visible = false;
+                } else {
+                    lblLoginFail.Visible = true;
+                }
+            }
+            
+
         }
     }
 }

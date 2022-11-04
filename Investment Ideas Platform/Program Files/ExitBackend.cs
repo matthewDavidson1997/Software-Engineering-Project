@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace Relationship_manager_administration_system
 {
-    class ExitBackend : Form
+    class ExitBackend
     {
         public static void exitProgram() {
             // exits program with return code 0 no faults

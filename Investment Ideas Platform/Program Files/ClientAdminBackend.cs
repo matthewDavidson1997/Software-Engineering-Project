@@ -17,10 +17,10 @@ namespace Relationship_manager_administration_system
 			lblClientReference.Text = "Referecing Client ";
 		}
 
-		public static void getdatafromDB(DataGridView dgvClients)
+		public static void getdatafromDB(DataGridView dgvClients, int rmid)
 		{
 
-			DataTable clients = DatabaseClass.GetClients();
+			DataTable clients = DatabaseClass.GetClients(rmid);
 
 			foreach (DataRow row in clients.Rows)
 			{

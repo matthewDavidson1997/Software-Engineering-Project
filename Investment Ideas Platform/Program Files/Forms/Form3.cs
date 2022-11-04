@@ -10,9 +10,12 @@ namespace Relationship_manager_administration_system
 {
     public partial class ClientAdmin : Form
     {
-        public ClientAdmin()
+        private User user;
+        public ClientAdmin(User passedUser)
         {
             InitializeComponent();
+            user = passedUser;
+
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -33,7 +36,8 @@ namespace Relationship_manager_administration_system
         {
             dgvClients.Rows.Clear();
             ClientAdminBackend.ClearClick(txtClientName, txtEmail, txtContactName, txtContactNumber, lblClientReference);
-            ClientAdminBackend.getdatafromDB(dgvClients);
+            ClientAdminBackend.getdatafromDB(dgvClients, user.id);
+            lblLoggedInRM.Text = "Logged In RM ID: " + user.id;
         }
 
         private void dgvClients_MouseClick(object sender, DataGridViewCellEventArgs e)

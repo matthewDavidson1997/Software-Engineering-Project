@@ -15,7 +15,7 @@ namespace Relationship_manager_administration_system
             DataTable potentialUser = new DataTable();
 
             connection.Open();
-            SqlDataAdapter adapter = new SqlDataAdapter(@"SELECT Email, [Password] FROM [dbo].[tblRelationshipManagers] WHERE Email = '" + username + "'", connection);
+            SqlDataAdapter adapter = new SqlDataAdapter(@"SELECT rmID, Email, [Password] FROM [dbo].[tblRelationshipManagers] WHERE Email = '" + username + "'", connection);
             adapter.Fill(potentialUser);
             connection.Close();
 
@@ -24,11 +24,11 @@ namespace Relationship_manager_administration_system
             return potentialUser;
         }
 
-        public static DataTable GetClients() {
+        public static DataTable GetClients(int rmid) {
             DataTable clients = new DataTable();
 
             connection.Open();
-            SqlDataAdapter adapter = new SqlDataAdapter(@"SELECT ClientID, FirstName, LastName, Email, Company, Phone FROM[dbo].[tblClients]", connection);
+            SqlDataAdapter adapter = new SqlDataAdapter(@"SELECT ClientID, FirstName, LastName, Email, Company, Phone FROM[dbo].[tblClients] WHERE rmID = '" + rmid + "'", connection);
             adapter.Fill(clients);
             connection.Close();
 

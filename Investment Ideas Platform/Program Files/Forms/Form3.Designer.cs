@@ -52,6 +52,7 @@ namespace Relationship_manager_administration_system
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
+            this.lblLoggedInRM = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClients)).BeginInit();
             this.SuspendLayout();
             // 
@@ -252,11 +253,21 @@ namespace Relationship_manager_administration_system
             this.label5.TabIndex = 14;
             this.label5.Text = "Client Admin Page";
             // 
+            // lblLoggedInRM
+            // 
+            this.lblLoggedInRM.AutoSize = true;
+            this.lblLoggedInRM.Location = new System.Drawing.Point(632, 421);
+            this.lblLoggedInRM.Name = "lblLoggedInRM";
+            this.lblLoggedInRM.Size = new System.Drawing.Size(128, 20);
+            this.lblLoggedInRM.TabIndex = 15;
+            this.lblLoggedInRM.Text = "Logged In RM ID: ";
+            // 
             // ClientAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblLoggedInRM);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnDelete);
@@ -303,5 +314,6 @@ namespace Relationship_manager_administration_system
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblLoggedInRM;
     }
 }

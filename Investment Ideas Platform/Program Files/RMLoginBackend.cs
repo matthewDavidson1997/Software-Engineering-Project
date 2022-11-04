@@ -92,12 +92,16 @@ namespace Relationship_manager_administration_system
         protected static bool loginInfoCorrect(string role, string username, string password)
         {
             Debug.WriteLine("LIC RAN");
-            if (checkUserExists() && password.Equals(potentialUser.Rows[0][1].ToString()))
+            if (checkUserExists() && password.Equals(potentialUser.Rows[0][2].ToString()))
             {
                 return true;
             }
 
             return false;
+        }
+
+        public static int ReturnID() {
+            return Convert.ToInt32(potentialUser.Rows[0][0].ToString());
         }
     }
 }

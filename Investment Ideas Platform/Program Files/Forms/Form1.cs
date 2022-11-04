@@ -43,7 +43,6 @@ namespace Relationship_manager_administration_system
                 }
             }
     
-
         }
     }
 }

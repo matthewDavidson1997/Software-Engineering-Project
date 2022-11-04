@@ -1,7 +1,7 @@
 ﻿
-namespace Relationship_manager_administration_system.Forms
+namespace Relationship_manager_administration_system
 {
-    partial class Form3
+    partial class ClientAdmin
     {
         /// <summary>
         /// Required designer variable.
@@ -32,13 +32,13 @@ namespace Relationship_manager_administration_system.Forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvClients = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.client = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contactName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ContactNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtName = new System.Windows.Forms.TextBox();
+            this.txtClientName = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtContactName = new System.Windows.Forms.TextBox();
             this.txtContactNumber = new System.Windows.Forms.TextBox();
@@ -52,10 +52,10 @@ namespace Relationship_manager_administration_system.Forms
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClients)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgvClients
             // 
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -64,9 +64,9 @@ namespace Relationship_manager_administration_system.Forms
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvClients.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvClients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvClients.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
             this.client,
             this.email,
@@ -79,9 +79,9 @@ namespace Relationship_manager_administration_system.Forms
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.Location = new System.Drawing.Point(1, 226);
-            this.dataGridView1.Name = "dataGridView1";
+            this.dgvClients.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvClients.Location = new System.Drawing.Point(1, 226);
+            this.dgvClients.Name = "dgvClients";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -89,12 +89,13 @@ namespace Relationship_manager_administration_system.Forms
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridView1.Size = new System.Drawing.Size(802, 139);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvClients.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvClients.RowHeadersWidth = 51;
+            this.dgvClients.RowTemplate.Height = 29;
+            this.dgvClients.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvClients.Size = new System.Drawing.Size(802, 139);
+            this.dgvClients.TabIndex = 0;
+            this.dgvClients.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClients_MouseClick);
             // 
             // id
             // 
@@ -131,12 +132,12 @@ namespace Relationship_manager_administration_system.Forms
             this.ContactNumber.Name = "ContactNumber";
             this.ContactNumber.Width = 125;
             // 
-            // txtName
+            // txtClientName
             // 
-            this.txtName.Location = new System.Drawing.Point(137, 70);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(222, 27);
-            this.txtName.TabIndex = 1;
+            this.txtClientName.Location = new System.Drawing.Point(137, 70);
+            this.txtClientName.Name = "txtClientName";
+            this.txtClientName.Size = new System.Drawing.Size(222, 27);
+            this.txtClientName.TabIndex = 1;
             // 
             // txtEmail
             // 
@@ -212,6 +213,7 @@ namespace Relationship_manager_administration_system.Forms
             this.btnClear.TabIndex = 10;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnUpdate
             // 
@@ -250,7 +252,7 @@ namespace Relationship_manager_administration_system.Forms
             this.label5.TabIndex = 14;
             this.label5.Text = "Client Admin Page";
             // 
-            // Form3
+            // ClientAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -268,11 +270,12 @@ namespace Relationship_manager_administration_system.Forms
             this.Controls.Add(this.txtContactNumber);
             this.Controls.Add(this.txtContactName);
             this.Controls.Add(this.txtEmail);
-            this.Controls.Add(this.txtName);
-            this.Controls.Add(this.dataGridView1);
-            this.Name = "Form3";
+            this.Controls.Add(this.txtClientName);
+            this.Controls.Add(this.dgvClients);
+            this.Name = "ClientAdmin";
             this.Text = "Client Admin Page";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.ClientAdmin_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClients)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -280,8 +283,8 @@ namespace Relationship_manager_administration_system.Forms
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.DataGridView dgvClients;
+        private System.Windows.Forms.TextBox txtClientName;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtContactName;
         private System.Windows.Forms.TextBox txtContactNumber;

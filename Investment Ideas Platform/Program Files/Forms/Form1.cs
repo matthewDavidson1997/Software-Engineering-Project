@@ -38,6 +38,8 @@ namespace Relationship_manager_administration_system
                 if(RMLoginBackend.rmLoginBackend(role, email, password))
                 {
                     lblLoginFail.Visible = false;
+                    ClientAdmin clientAdmin = new ClientAdmin();
+                    clientAdmin.Show();
                 } else {
                     lblLoginFail.Visible = true;
                 }

@@ -6,11 +6,11 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Relationship_manager_administration_system.Forms
+namespace Relationship_manager_administration_system
 {
-    public partial class Form3 : Form
+    public partial class ClientAdmin : Form
     {
-        public Form3()
+        public ClientAdmin()
         {
             InitializeComponent();
         }
@@ -22,6 +22,23 @@ namespace Relationship_manager_administration_system.Forms
             exitPopUp.Show();
             // disables the current form so you cant use this form while exit prompt is active
             this.Enabled = false;
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            ClientAdminBackend.ClearClick(txtClientName, txtEmail, txtContactName, txtContactNumber, lblClientReference);
+        }
+
+        private void ClientAdmin_Load(object sender, EventArgs e)
+        {
+            dgvClients.Rows.Clear();
+            ClientAdminBackend.ClearClick(txtClientName, txtEmail, txtContactName, txtContactNumber, lblClientReference);
+            ClientAdminBackend.getdatafromDB(dgvClients);
+        }
+
+        private void dgvClients_MouseClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ClientAdminBackend.FillTextBoxes(dgvClients, txtClientName, txtEmail, txtContactName, txtContactNumber, lblClientReference);
         }
     }
 }

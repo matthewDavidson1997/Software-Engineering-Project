@@ -14,5 +14,14 @@ namespace Relationship_manager_administration_system.Forms
         {
             InitializeComponent();
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            ExitPopUp exitPopUp = new ExitPopUp(this);
+            // displays the pop up form
+            exitPopUp.Show();
+            // disables the current form so you cant use this form while exit prompt is active
+            this.Enabled = false;
+        }
     }
 }

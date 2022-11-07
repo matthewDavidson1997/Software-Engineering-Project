@@ -1,4 +1,7 @@
 ﻿
+using System;
+using System.Windows.Forms;
+
 namespace Relationship_manager_administration_system
 {
     partial class ClientAdmin
@@ -286,6 +289,7 @@ namespace Relationship_manager_administration_system
             this.Name = "ClientAdmin";
             this.Text = "Client Admin Page";
             this.Load += new System.EventHandler(this.ClientAdmin_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ClientAdmin_Closing);
             ((System.ComponentModel.ISupportInitialize)(this.dgvClients)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

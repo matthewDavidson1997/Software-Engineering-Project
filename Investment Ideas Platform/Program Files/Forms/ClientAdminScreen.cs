@@ -38,5 +38,10 @@ namespace Relationship_manager_administration_system
             ClientAdminBackend.FillTextBoxes(dgvClients, txtClientName, txtEmail, txtContactName, txtContactNumber, lblClientReference);
         }
 
+        //used to close the program found at: https://learn.microsoft.com/en-us/dotnet/api/system.windows.forms.form.closing?view=windowsdesktop-6.0
+        private void ClientAdmin_Closing(object sender, FormClosingEventArgs e)
+        {
+            ExitBackend.exitProgram();
+        }
     }
 }

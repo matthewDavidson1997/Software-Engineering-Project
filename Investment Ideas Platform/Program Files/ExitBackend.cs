@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace Relationship_manager_administration_system
 {
@@ -19,11 +20,15 @@ namespace Relationship_manager_administration_system
             Environment.Exit(0);
         }
 
-        public static void cancelExit(Form form, ExitPopUp exitPopUp) {
+        public static void cancelExit(Form passedForm, ExitPopUp exitPopUp) {
             // used to reinable original form is cancell button is clicked
-            form.Enabled = true;
+            passedForm.Enabled = true;
             // closes this form
             exitPopUp.Close();
+        }
+
+        public static void exitWindowClosedUnexpectedly(Form passedForm) {
+            passedForm.Enabled = true;
         }
     }
 }

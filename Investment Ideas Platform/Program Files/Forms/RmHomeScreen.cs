@@ -32,6 +32,7 @@ namespace Relationship_manager_administration_system
             RmHomeScreenBackend.clientsButtonClicked(this, user);
         }
 
+       //used to close the program found at: https://learn.microsoft.com/en-us/dotnet/api/system.windows.forms.form.closing?view=windowsdesktop-6.0
         private void RmHomeScreen_Closing(object sender, FormClosingEventArgs e) {
             ExitBackend.exitProgram();
         }

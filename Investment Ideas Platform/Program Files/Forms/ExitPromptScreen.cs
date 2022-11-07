@@ -29,6 +29,8 @@ namespace Relationship_manager_administration_system
             ExitBackend.exitProgram();
         }
 
-        
+        private void exitPopUp_Closing(object sender, FormClosingEventArgs e) {
+            ExitBackend.exitWindowClosedUnexpectedly(form);
+        }
     }
 }

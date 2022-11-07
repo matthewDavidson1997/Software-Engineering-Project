@@ -76,8 +76,8 @@ namespace Relationship_manager_administration_system
 
             connection.Close();
 
-            Debug.WriteLine(potentialUser.Tables["RM"].Rows[0][0]);
-            Debug.WriteLine(potentialUser.Tables["RM"].Rows[0][0]);
+            Debug.WriteLine(potentialUser.Tables["RM"].Rows[0][1]);
+            Debug.WriteLine(potentialUser.Tables["RM"].Rows[0][2]);
 
             return potentialUser;
             

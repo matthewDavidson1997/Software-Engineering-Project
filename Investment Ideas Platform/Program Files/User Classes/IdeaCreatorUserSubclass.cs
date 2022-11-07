@@ -1,8 +1,12 @@
 ﻿using System;
 
-public class IdeaCreator : User
+namespace Relationship_manager_administration_system
 {
-	public IdeaCreator()
+	public class IdeaCreator
 	{
+		public IdeaCreator()
+		{
+
+		}
 	}
 }

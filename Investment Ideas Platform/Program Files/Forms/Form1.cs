@@ -37,12 +37,17 @@ namespace Relationship_manager_administration_system
             if (cbAccountType.Text == "Relationship Manager") { 
                 if(RMLoginBackend.rmLoginBackend(role, email, password))
                 {
+                    int id = RMLoginBackend.ReturnID();
                     lblLoginFail.Visible = false;
+                    User user = new User(id, email, password, role);
+                    ClientAdmin clientAdmin = new ClientAdmin(user);
+                    clientAdmin.Show();
                 } else {
                     lblLoginFail.Visible = true;
                 }
             }
             
+
         }
     }
 }

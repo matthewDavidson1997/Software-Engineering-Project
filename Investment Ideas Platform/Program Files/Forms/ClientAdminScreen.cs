@@ -20,11 +20,7 @@ namespace Relationship_manager_administration_system
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            ExitPopUp exitPopUp = new ExitPopUp(this);
-            // displays the pop up form
-            exitPopUp.Show();
-            // disables the current form so you cant use this form while exit prompt is active
-            this.Enabled = false;
+            ExitBackend.buttonClicked(this);
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -44,5 +40,6 @@ namespace Relationship_manager_administration_system
         {
             ClientAdminBackend.FillTextBoxes(dgvClients, txtClientName, txtEmail, txtContactName, txtContactNumber, lblClientReference);
         }
+
     }
 }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Relationship_manager_administration_system
 {
-    public partial class Form1 : Form
+    public partial class LoginScreen : Form
     {
-        public Form1()
+        public LoginScreen()
         {
             InitializeComponent();
         }
@@ -20,12 +20,7 @@ namespace Relationship_manager_administration_system
         // runs if cancel button is clicked
         private void btnExit_Click(object sender, EventArgs e)
         {
-            // creates new instance of exit pop up form
-            ExitPopUp exitPopUp = new ExitPopUp(this);
-            // displays the pop up form
-            exitPopUp.Show();
-            // disables the current form so you cant use this form while exit prompt is active
-            this.Enabled = false;
+            ExitBackend.buttonClicked(this);
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -34,19 +29,22 @@ namespace Relationship_manager_administration_system
             String email = txtEmail.Text.ToString();
             String password = txtPassword.Text.ToString();
 
-            if (cbAccountType.Text == "Relationship Manager") { 
-                if(RMLoginBackend.rmLoginBackend(role, email, password))
+            if (cbAccountType.Text == "Relationship Manager")
+            {
+                if (RMLoginBackend.rmLoginBackend(role, email, password))
                 {
                     int id = RMLoginBackend.ReturnID();
                     lblLoginFail.Visible = false;
                     User user = new User(id, email, password, role);
                     ClientAdmin clientAdmin = new ClientAdmin(user);
                     clientAdmin.Show();
-                } else {
+                }
+                else
+                {
                     lblLoginFail.Visible = true;
                 }
             }
-            
+
 
         }
     }

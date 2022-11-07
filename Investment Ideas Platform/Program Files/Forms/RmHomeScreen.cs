@@ -19,7 +19,7 @@ namespace Relationship_manager_administration_system
 
         private void RmHomeScreen_Load(object sender, EventArgs e)
         {
-            lblLoggedInRmId.Text = "Logged In RM ID: " + user.id;
+            RmHomeScreenBackend.rmHomeScreen_Load(lblLoggedInRmId, user);
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -29,9 +29,7 @@ namespace Relationship_manager_administration_system
 
         private void btnClients_Click(object sender, EventArgs e)
         {
-            ClientAdmin clientAdmin = new ClientAdmin(user);
-            clientAdmin.Show();
-            this.Hide();
+            RmHomeScreenBackend.clientsButtonClicked(this, user);
         }
 
         private void RmHomeScreen_Closing(object sender, FormClosingEventArgs e) {

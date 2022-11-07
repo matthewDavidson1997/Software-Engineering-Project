@@ -30,10 +30,7 @@ namespace Relationship_manager_administration_system
 
         private void ClientAdmin_Load(object sender, EventArgs e)
         {
-            dgvClients.Rows.Clear();
-            ClientAdminBackend.ClearClick(txtClientName, txtEmail, txtContactName, txtContactNumber, lblClientReference);
-            ClientAdminBackend.getdatafromDB(dgvClients, user.id);
-            lblLoggedInRM.Text = "Logged In RM ID: " + user.id;
+            ClientAdminBackend.clientAdmin_Load(dgvClients, txtClientName, txtEmail, txtContactName, txtContactNumber, lblClientReference, user.id, lblLoggedInRM);
         }
 
         private void dgvClients_MouseClick(object sender, DataGridViewCellEventArgs e)

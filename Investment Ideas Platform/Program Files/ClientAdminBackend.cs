@@ -8,6 +8,12 @@ namespace Relationship_manager_administration_system
 
 	public class ClientAdminBackend
 	{
+		public static void clientAdmin_Load(DataGridView dgvClients, TextBox txtClient, TextBox txtEmail, TextBox txtContactName, TextBox txtContactNumber, Label lblClientReference, int rmId, Label lblLoggedInRM) {
+			dgvClients.Rows.Clear();
+			ClearClick(txtClient, txtEmail, txtContactName, txtContactNumber, lblClientReference);
+			getdatafromDB(dgvClients, rmId);
+			lblLoggedInRM.Text = $"Logged In RM ID: {rmId}";
+		}
 		public static void ClearClick(TextBox txtClient, TextBox txtEmail, TextBox txtContactName, TextBox txtContactNumber, Label lblClientReference)
 		{
 			txtClient.Clear();

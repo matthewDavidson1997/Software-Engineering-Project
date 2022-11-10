@@ -40,10 +40,10 @@ namespace Relationship_manager_administration_system
             if (checkCredentials(role, username, password))
             {
                 Debug.WriteLine("got to LPU");
-                LoadPotentialUser(role, username, password);
+                LoadPotentialUser(username);
 
                 if (checkUserExists()) {
-                    if (loginInfoCorrect(role, username, password))
+                    if (loginInfoCorrect(password))
                     {
                         return true;
                     }
@@ -61,7 +61,7 @@ namespace Relationship_manager_administration_system
             {
                 return false;
             }
-            else if (hasSpace(role, username, password))
+            else if (hasSpace(username, password))
             {
                 return false;
             }
@@ -83,7 +83,7 @@ namespace Relationship_manager_administration_system
             return false;
         }
 
-        private static bool hasSpace(string role, string username, string password)
+        private static bool hasSpace(string username, string password)
         {
             Debug.WriteLine("HS RAN");
 
@@ -96,7 +96,7 @@ namespace Relationship_manager_administration_system
         }
 
 
-        private static void LoadPotentialUser(string role, string username, string password)
+        private static void LoadPotentialUser(string username)
         {
             Debug.WriteLine("LPU RAN");
             potentialUser = DatabaseClass.GetPotentialUser(username);
@@ -113,7 +113,7 @@ namespace Relationship_manager_administration_system
             return true;
         }
 
-        private static bool loginInfoCorrect(string role, string username, string password)
+        private static bool loginInfoCorrect(string password)
         {
             Debug.WriteLine("LIC RAN");
             if (checkUserExists() && password.Equals(potentialUser.Rows[0][2].ToString()))

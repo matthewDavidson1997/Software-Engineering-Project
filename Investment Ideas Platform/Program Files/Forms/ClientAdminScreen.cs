@@ -25,17 +25,17 @@ namespace Relationship_manager_administration_system
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            ClientAdminBackend.ClearClick(txtClientName, txtEmail, txtContactName, txtContactNumber, lblClientReference);
+            ClientAdminBackend.ClearClick(txtClientName, txtEmail, txtContactFirst, txtContactLast, txtContactNumber, lblClientReference);
         }
 
         private void ClientAdmin_Load(object sender, EventArgs e)
         {
-            ClientAdminBackend.clientAdmin_Load(dgvClients, txtClientName, txtEmail, txtContactName, txtContactNumber, lblClientReference, user.id, lblLoggedInRM);
+            ClientAdminBackend.clientAdmin_Load(dgvClients, txtClientName, txtEmail, txtContactFirst, txtContactLast, txtContactNumber, lblClientReference, user.id, lblLoggedInRM);
         }
 
         private void dgvClients_MouseClick(object sender, DataGridViewCellEventArgs e)
         {
-            ClientAdminBackend.FillTextBoxes(dgvClients, txtClientName, txtEmail, txtContactName, txtContactNumber, lblClientReference);
+            ClientAdminBackend.FillTextBoxes(dgvClients, txtClientName, txtEmail, txtContactFirst, txtContactLast, txtContactNumber, lblClientReference);
         }
 
         //used to close the program found at: https://learn.microsoft.com/en-us/dotnet/api/system.windows.forms.form.closing?view=windowsdesktop-6.0
@@ -43,5 +43,6 @@ namespace Relationship_manager_administration_system
         {
             ExitBackend.exitProgram();
         }
+
     }
 }

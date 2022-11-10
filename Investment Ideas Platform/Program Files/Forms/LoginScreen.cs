@@ -25,7 +25,7 @@ namespace Relationship_manager_administration_system
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            RMLoginBackend.rmLoginBackend(this, lblAccountType, cbAccountType, txtEmail, txtPassword);
+            RMLoginBackend.rmLoginBackend(this, lblLoginFail, cbAccountType, txtEmail, txtPassword);
         }
     }
 }

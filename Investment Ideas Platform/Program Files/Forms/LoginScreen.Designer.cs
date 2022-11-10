@@ -1,7 +1,7 @@
 ﻿
 namespace Relationship_manager_administration_system
 {
-    partial class Form1
+    partial class LoginScreen
     {
         /// <summary>
         ///  Required designer variable.

@@ -34,5 +34,12 @@ namespace Relationship_manager_administration_system
 
             return clients;
         }
+
+        public static void UpdateClientData(string clientReference, string client, string email, string contactNumber) {
+            connection.Open();
+            SqlCommand command = new SqlCommand("UPDATE [dbo].[tblClients] SET Company='"+client+ "', Email='"+email+"', Phone='"+contactNumber+"' WHERE clientID ='" + clientReference + "'", connection);
+            command.ExecuteNonQuery();
+            connection.Close();
+        }
     }
 }

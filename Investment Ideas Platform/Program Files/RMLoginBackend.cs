@@ -4,22 +4,46 @@ using System.Text;
 using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
+using System.Windows.Forms;
 
 namespace Relationship_manager_administration_system
 {
-    class RMLoginBackend
+    class RMLoginBackend : Form
     {
         private static DataTable potentialUser;
 
-        public static bool rmLoginBackend(String role, String username, String password)
+        public static void rmLoginBackend(Form form, Label lblLoginFail, ComboBox cbAccountType, TextBox txtEmail, TextBox txtPassword) {
+
+            String role = cbAccountType.Text.ToString();
+            String email = txtEmail.Text.ToString();
+            String password = txtPassword.Text.ToString();
+
+            if (cbAccountType.Text == "Relationship Manager")
+            {
+                if (RMLoginBackend.rmLoginBackendReturn(role, email, password))
+                {
+                    int id = RMLoginBackend.ReturnID();
+                    lblLoginFail.Visible = false;
+                    User user = new User(id, email, password, role);
+                    RmHomeScreen rmHomeScreen = new RmHomeScreen(user);
+                    rmHomeScreen.Show();
+                    form.Hide();
+                }
+                else
+                {
+                    lblLoginFail.Visible = true;
+                }
+            }
+        }
+        private static bool rmLoginBackendReturn(String role, String username, String password)
         {
             if (checkCredentials(role, username, password))
             {
                 Debug.WriteLine("got to LPU");
-                LoadPotentialUser(role, username, password);
+                LoadPotentialUser(username);
 
                 if (checkUserExists()) {
-                    if (loginInfoCorrect(role, username, password))
+                    if (loginInfoCorrect(password))
                     {
                         return true;
                     }
@@ -29,7 +53,7 @@ namespace Relationship_manager_administration_system
             return false;
         }
 
-        protected static bool checkCredentials(string role, string username, string password)
+        private static bool checkCredentials(string role, string username, string password)
         {
             Debug.WriteLine("CC RAN");
 
@@ -37,7 +61,7 @@ namespace Relationship_manager_administration_system
             {
                 return false;
             }
-            else if (hasSpace(role, username, password))
+            else if (hasSpace(username, password))
             {
                 return false;
             }
@@ -45,7 +69,7 @@ namespace Relationship_manager_administration_system
             return true;
         }
 
-        protected static bool isBlank(string role, string username, string password)
+        private static bool isBlank(string role, string username, string password)
         {
             Debug.WriteLine("IB RAN");
 
@@ -59,7 +83,7 @@ namespace Relationship_manager_administration_system
             return false;
         }
 
-        protected static bool hasSpace(string role, string username, string password)
+        private static bool hasSpace(string username, string password)
         {
             Debug.WriteLine("HS RAN");
 
@@ -72,13 +96,13 @@ namespace Relationship_manager_administration_system
         }
 
 
-        protected static void LoadPotentialUser(string role, string username, string password)
+        private static void LoadPotentialUser(string username)
         {
             Debug.WriteLine("LPU RAN");
             potentialUser = DatabaseClass.GetPotentialUser(username);
         }
 
-        protected static bool checkUserExists() {
+        private static bool checkUserExists() {
             Debug.WriteLine("CUE RAN");
 
             if (potentialUser.Rows.Count == 0)
@@ -89,7 +113,7 @@ namespace Relationship_manager_administration_system
             return true;
         }
 
-        protected static bool loginInfoCorrect(string role, string username, string password)
+        private static bool loginInfoCorrect(string password)
         {
             Debug.WriteLine("LIC RAN");
             if (checkUserExists() && password.Equals(potentialUser.Rows[0][2].ToString()))
@@ -100,7 +124,7 @@ namespace Relationship_manager_administration_system
             return false;
         }
 
-        public static int ReturnID() {
+        private static int ReturnID() {
             return Convert.ToInt32(potentialUser.Rows[0][0].ToString());
         }
     }

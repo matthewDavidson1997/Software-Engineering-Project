@@ -36,14 +36,9 @@ namespace Relationship_manager_administration_system
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvClients = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.client = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contactName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ContactNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtClientName = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
-            this.txtContactName = new System.Windows.Forms.TextBox();
+            this.txtContactFirst = new System.Windows.Forms.TextBox();
             this.txtContactNumber = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -56,6 +51,14 @@ namespace Relationship_manager_administration_system
             this.btnExit = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.lblLoggedInRM = new System.Windows.Forms.Label();
+            this.txtContactLast = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.client = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ContactFirst = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ContactLast = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ContactNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClients)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,7 +77,8 @@ namespace Relationship_manager_administration_system
             this.id,
             this.client,
             this.email,
-            this.contactName,
+            this.ContactFirst,
+            this.ContactLast,
             this.ContactNumber});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
@@ -84,7 +88,7 @@ namespace Relationship_manager_administration_system
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvClients.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvClients.Location = new System.Drawing.Point(1, 226);
+            this.dgvClients.Location = new System.Drawing.Point(2, 266);
             this.dgvClients.Name = "dgvClients";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
@@ -97,69 +101,34 @@ namespace Relationship_manager_administration_system
             this.dgvClients.RowHeadersWidth = 51;
             this.dgvClients.RowTemplate.Height = 29;
             this.dgvClients.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dgvClients.Size = new System.Drawing.Size(802, 139);
+            this.dgvClients.Size = new System.Drawing.Size(811, 139);
             this.dgvClients.TabIndex = 0;
             this.dgvClients.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClients_MouseClick);
             // 
-            // id
-            // 
-            this.id.HeaderText = "ID";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.Width = 125;
-            // 
-            // client
-            // 
-            this.client.HeaderText = "client";
-            this.client.MinimumWidth = 6;
-            this.client.Name = "client";
-            this.client.Width = 125;
-            // 
-            // email
-            // 
-            this.email.HeaderText = "email";
-            this.email.MinimumWidth = 6;
-            this.email.Name = "email";
-            this.email.Width = 125;
-            // 
-            // contactName
-            // 
-            this.contactName.HeaderText = "contactName";
-            this.contactName.MinimumWidth = 6;
-            this.contactName.Name = "contactName";
-            this.contactName.Width = 125;
-            // 
-            // ContactNumber
-            // 
-            this.ContactNumber.HeaderText = "ContactNumber";
-            this.ContactNumber.MinimumWidth = 6;
-            this.ContactNumber.Name = "ContactNumber";
-            this.ContactNumber.Width = 125;
-            // 
             // txtClientName
             // 
-            this.txtClientName.Location = new System.Drawing.Point(137, 70);
+            this.txtClientName.Location = new System.Drawing.Point(137, 81);
             this.txtClientName.Name = "txtClientName";
             this.txtClientName.Size = new System.Drawing.Size(222, 27);
             this.txtClientName.TabIndex = 1;
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(137, 103);
+            this.txtEmail.Location = new System.Drawing.Point(137, 116);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(222, 27);
             this.txtEmail.TabIndex = 2;
             // 
-            // txtContactName
+            // txtContactFirst
             // 
-            this.txtContactName.Location = new System.Drawing.Point(137, 136);
-            this.txtContactName.Name = "txtContactName";
-            this.txtContactName.Size = new System.Drawing.Size(222, 27);
-            this.txtContactName.TabIndex = 3;
+            this.txtContactFirst.Location = new System.Drawing.Point(137, 149);
+            this.txtContactFirst.Name = "txtContactFirst";
+            this.txtContactFirst.Size = new System.Drawing.Size(222, 27);
+            this.txtContactFirst.TabIndex = 3;
             // 
             // txtContactNumber
             // 
-            this.txtContactNumber.Location = new System.Drawing.Point(137, 166);
+            this.txtContactNumber.Location = new System.Drawing.Point(137, 218);
             this.txtContactNumber.Name = "txtContactNumber";
             this.txtContactNumber.Size = new System.Drawing.Size(222, 27);
             this.txtContactNumber.TabIndex = 4;
@@ -167,7 +136,7 @@ namespace Relationship_manager_administration_system
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(71, 70);
+            this.label1.Location = new System.Drawing.Point(71, 88);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 20);
             this.label1.TabIndex = 5;
@@ -176,7 +145,7 @@ namespace Relationship_manager_administration_system
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(71, 103);
+            this.label2.Location = new System.Drawing.Point(71, 123);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(46, 20);
             this.label2.TabIndex = 6;
@@ -185,16 +154,16 @@ namespace Relationship_manager_administration_system
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(27, 136);
+            this.label3.Location = new System.Drawing.Point(51, 156);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(104, 20);
+            this.label3.Size = new System.Drawing.Size(80, 20);
             this.label3.TabIndex = 7;
-            this.label3.Text = "Contact Name";
+            this.label3.Text = "First Name";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 173);
+            this.label4.Location = new System.Drawing.Point(12, 221);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(118, 20);
             this.label4.TabIndex = 8;
@@ -239,7 +208,7 @@ namespace Relationship_manager_administration_system
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(13, 385);
+            this.btnExit.Location = new System.Drawing.Point(12, 420);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(118, 53);
             this.btnExit.TabIndex = 13;
@@ -259,17 +228,77 @@ namespace Relationship_manager_administration_system
             // lblLoggedInRM
             // 
             this.lblLoggedInRM.AutoSize = true;
-            this.lblLoggedInRM.Location = new System.Drawing.Point(632, 421);
+            this.lblLoggedInRM.Location = new System.Drawing.Point(632, 436);
             this.lblLoggedInRM.Name = "lblLoggedInRM";
             this.lblLoggedInRM.Size = new System.Drawing.Size(128, 20);
             this.lblLoggedInRM.TabIndex = 15;
             this.lblLoggedInRM.Text = "Logged In RM ID: ";
             // 
+            // txtContactLast
+            // 
+            this.txtContactLast.Location = new System.Drawing.Point(137, 185);
+            this.txtContactLast.Name = "txtContactLast";
+            this.txtContactLast.Size = new System.Drawing.Size(222, 27);
+            this.txtContactLast.TabIndex = 16;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(51, 188);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(79, 20);
+            this.label6.TabIndex = 17;
+            this.label6.Text = "Last Name";
+            // 
+            // id
+            // 
+            this.id.HeaderText = "ID";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.Width = 125;
+            // 
+            // client
+            // 
+            this.client.HeaderText = "client";
+            this.client.MinimumWidth = 6;
+            this.client.Name = "client";
+            this.client.Width = 125;
+            // 
+            // email
+            // 
+            this.email.HeaderText = "email";
+            this.email.MinimumWidth = 6;
+            this.email.Name = "email";
+            this.email.Width = 125;
+            // 
+            // ContactFirst
+            // 
+            this.ContactFirst.HeaderText = "Contact First Name";
+            this.ContactFirst.MinimumWidth = 6;
+            this.ContactFirst.Name = "ContactFirst";
+            this.ContactFirst.Width = 125;
+            // 
+            // ContactLast
+            // 
+            this.ContactLast.HeaderText = "Contact Last Name";
+            this.ContactLast.MinimumWidth = 6;
+            this.ContactLast.Name = "ContactLast";
+            this.ContactLast.Width = 125;
+            // 
+            // ContactNumber
+            // 
+            this.ContactNumber.HeaderText = "ContactNumber";
+            this.ContactNumber.MinimumWidth = 6;
+            this.ContactNumber.Name = "ContactNumber";
+            this.ContactNumber.Width = 125;
+            // 
             // ClientAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(811, 485);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.txtContactLast);
             this.Controls.Add(this.lblLoggedInRM);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnExit);
@@ -282,14 +311,14 @@ namespace Relationship_manager_administration_system
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtContactNumber);
-            this.Controls.Add(this.txtContactName);
+            this.Controls.Add(this.txtContactFirst);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.txtClientName);
             this.Controls.Add(this.dgvClients);
             this.Name = "ClientAdmin";
             this.Text = "Client Admin Page";
-            this.Load += new System.EventHandler(this.ClientAdmin_Load);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ClientAdmin_Closing);
+            this.Load += new System.EventHandler(this.ClientAdmin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvClients)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -301,23 +330,26 @@ namespace Relationship_manager_administration_system
         private System.Windows.Forms.DataGridView dgvClients;
         private System.Windows.Forms.TextBox txtClientName;
         private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.TextBox txtContactName;
+        private System.Windows.Forms.TextBox txtContactFirst;
         private System.Windows.Forms.TextBox txtContactNumber;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblClientReference;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn client;
-        private System.Windows.Forms.DataGridViewTextBoxColumn email;
-        private System.Windows.Forms.DataGridViewTextBoxColumn contactName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ContactNumber;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblLoggedInRM;
+        private TextBox txtContactLast;
+        private Label label6;
+        private DataGridViewTextBoxColumn id;
+        private DataGridViewTextBoxColumn client;
+        private DataGridViewTextBoxColumn email;
+        private DataGridViewTextBoxColumn ContactFirst;
+        private DataGridViewTextBoxColumn ContactLast;
+        private DataGridViewTextBoxColumn ContactNumber;
     }
 }

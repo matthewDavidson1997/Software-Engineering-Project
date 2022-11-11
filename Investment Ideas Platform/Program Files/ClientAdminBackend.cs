@@ -49,14 +49,15 @@ namespace Relationship_manager_administration_system
 
 		}
 
-		public static void UpdateClientInformation(TextBox txtClient, TextBox txtEmail, TextBox txtContactName, TextBox txtContactNumber, Label lblClientReference) {
+		public static void UpdateClientInformation(TextBox txtClient, TextBox txtEmail, TextBox txtContactFirst, TextBox txtContactLast, TextBox txtContactNumber, Label lblClientReference) {
 			string client = txtClient.Text.ToString();
 			string email = txtEmail.Text.ToString();
-			string contactName = txtContactName.Text.ToString();
+			string contactFirst = txtContactFirst.Text.ToString();
+			string contactLast = txtContactLast.Text.ToString();
 			string contactNumber = txtContactNumber.Text.ToString();
 			string clientReference = lblClientReference.Text.ToString();
 
-			DatabaseClass.UpdateClientData(clientReference, client, email, contactNumber);
+			DatabaseClass.UpdateClientData(clientReference, client, email, contactFirst, contactLast,  contactNumber);
 
 
 		}

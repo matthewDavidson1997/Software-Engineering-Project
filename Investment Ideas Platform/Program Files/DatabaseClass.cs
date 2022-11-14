@@ -62,5 +62,21 @@ namespace Relationship_manager_administration_system
 
             connection.Close();
         }
+
+        public static DataTable getClientEmails() {
+            DataTable emails = new DataTable();
+            connection.Open();
+            SqlDataAdapter adapter = new SqlDataAdapter(@"SELECT Email FROM [dbo].[tblClients]", connection);
+            adapter.Fill(emails);
+            connection.Close();
+            return emails;
+        }
+
+        public static void createClient(string client, string email, string contactFirstName, string contactLastName, string contactNumber, int rmID) {
+            connection.Open();
+            SqlCommand command = new SqlCommand("INSERT INTO [dbo].[tblClients] (FirstName, LastName, Email, Phone, Company, rmID) VALUES ('" + contactFirstName + "', '" + contactLastName + "', '" + email + "', '" + contactNumber + "', '" + client + "', '" + rmID + "');", connection);
+            command.ExecuteNonQuery();
+            connection.Close();
+        }
     }
 }

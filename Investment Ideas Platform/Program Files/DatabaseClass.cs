@@ -35,21 +35,31 @@ namespace Relationship_manager_administration_system
             return clients;
         }
 
-        public static void UpdateClientData(string clientReference, string client, string email, string contactFirst, string contactLast, string contactNumber) {
-            List<char> idNumberList = new List<char>();
-            char[] clientReferenceArray = clientReference.ToCharArray();
-
-            foreach (char c in clientReference) {
-                if (char.IsDigit(c)) { 
-                    idNumberList.Add(c);
-                }
-                
+        public static void UpdateClientData(int clientReference, string client, string email, string contactFirst, string contactLast, string contactNumber) {
+            try {
+                connection.Open();
+                SqlCommand command = new SqlCommand("UPDATE [dbo].[tblClients] SET Company='" + client + "', Email='" + email + "', FirstName='" + contactFirst + "', LastName='" + contactLast + "', Phone='" + contactNumber + "' WHERE clientID ='" + clientReference + "'", connection);
+                command.ExecuteNonQuery();
+            }
+            catch {
+                Debug.WriteLine("Empty data fields!");
             }
 
-            string number = string.Join(",", idNumberList);
-            connection.Open();
-            SqlCommand command = new SqlCommand("UPDATE [dbo].[tblClients] SET Company='"+client+ "', Email='"+email+"', FirstName='"+contactFirst+"', LastName='"+contactLast+"', Phone='"+contactNumber+"' WHERE clientID ='" + Convert.ToInt32(number) + "'", connection);
-            command.ExecuteNonQuery();
+            connection.Close();
+
+        }
+
+        public static void DeleteClient(int clientReference) {
+            try
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand("DELETE FROM [dbo].[tblClients] WHERE ClientID= '" + clientReference + "'", connection);
+                command.ExecuteNonQuery();
+            }
+            catch {
+                Debug.WriteLine("Empty Data fields!");
+            }
+
             connection.Close();
         }
     }

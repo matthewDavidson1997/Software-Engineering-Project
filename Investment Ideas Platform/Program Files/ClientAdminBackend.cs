@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Data;
-using System.Data.SqlClient;
+using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace Relationship_manager_administration_system
 {
@@ -55,11 +56,51 @@ namespace Relationship_manager_administration_system
 			string contactFirst = txtContactFirst.Text.ToString();
 			string contactLast = txtContactLast.Text.ToString();
 			string contactNumber = txtContactNumber.Text.ToString();
+			if (ClientAdminBackend.containsInt(lblClientReference))
+			{
+				int number = ClientAdminBackend.FormatClientID(lblClientReference);
+				DatabaseClass.UpdateClientData(number, client, email, contactFirst, contactLast, contactNumber);
+			}
+			else {
+				Debug.WriteLine("Client was not selected");
+			}
+		}
+
+		public static void DeleteClient(Label lblClientReference) {
+			if (ClientAdminBackend.containsInt(lblClientReference)) {
+				int clientReference = ClientAdminBackend.FormatClientID(lblClientReference);
+				DatabaseClass.DeleteClient(clientReference);
+			} else {
+				Debug.WriteLine("Cleint was not selected");
+            }
+		}
+
+		private static int FormatClientID(Label lblClientReference) {
 			string clientReference = lblClientReference.Text.ToString();
+			List<char> idNumberList = new List<char>();
+			char[] clientReferenceArray = clientReference.ToCharArray();
 
-			DatabaseClass.UpdateClientData(clientReference, client, email, contactFirst, contactLast,  contactNumber);
+			foreach (char c in clientReference)
+			{
+				if (char.IsDigit(c))
+				{
+					idNumberList.Add(c);
+				}
 
+			}
 
+			string number = string.Join(",", idNumberList);
+			return Convert.ToInt32(number);
+		}
+
+		private static bool containsInt(Label lblClientRefernce) {
+			foreach(char c in lblClientRefernce.Text.ToString())
+            {
+				if (char.IsDigit(c)) {
+					return true;
+				}
+			}
+			return false;
 		}
 	}
 }

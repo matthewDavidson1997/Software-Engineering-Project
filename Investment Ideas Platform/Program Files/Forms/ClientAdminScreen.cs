@@ -48,5 +48,11 @@ namespace Relationship_manager_administration_system
             ClientAdminBackend.UpdateClientInformation(txtClientName, txtEmail, txtContactFirst, txtContactLast, txtContactNumber, lblClientReference);
             ClientAdminBackend.clientAdmin_Load(dgvClients, txtClientName, txtEmail, txtContactFirst, txtContactLast, txtContactNumber, lblClientReference, user.id, lblLoggedInRM);
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            ClientAdminBackend.DeleteClient(lblClientReference);
+            ClientAdminBackend.clientAdmin_Load(dgvClients, txtClientName, txtEmail, txtContactFirst, txtContactLast, txtContactNumber, lblClientReference, user.id, lblLoggedInRM);
+        }
     }
 }

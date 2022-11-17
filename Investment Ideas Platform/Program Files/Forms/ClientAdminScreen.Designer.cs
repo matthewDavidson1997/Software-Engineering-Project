@@ -36,6 +36,12 @@ namespace Relationship_manager_administration_system
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvClients = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.client = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ContactFirst = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ContactLast = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ContactNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtClientName = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtContactFirst = new System.Windows.Forms.TextBox();
@@ -53,12 +59,7 @@ namespace Relationship_manager_administration_system
             this.lblLoggedInRM = new System.Windows.Forms.Label();
             this.txtContactLast = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.client = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ContactFirst = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ContactLast = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ContactNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnInsert = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClients)).BeginInit();
             this.SuspendLayout();
             // 
@@ -104,6 +105,48 @@ namespace Relationship_manager_administration_system
             this.dgvClients.Size = new System.Drawing.Size(811, 139);
             this.dgvClients.TabIndex = 0;
             this.dgvClients.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClients_MouseClick);
+            // 
+            // id
+            // 
+            this.id.HeaderText = "ID";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.Width = 125;
+            // 
+            // client
+            // 
+            this.client.HeaderText = "client";
+            this.client.MinimumWidth = 6;
+            this.client.Name = "client";
+            this.client.Width = 125;
+            // 
+            // email
+            // 
+            this.email.HeaderText = "email";
+            this.email.MinimumWidth = 6;
+            this.email.Name = "email";
+            this.email.Width = 125;
+            // 
+            // ContactFirst
+            // 
+            this.ContactFirst.HeaderText = "Contact First Name";
+            this.ContactFirst.MinimumWidth = 6;
+            this.ContactFirst.Name = "ContactFirst";
+            this.ContactFirst.Width = 125;
+            // 
+            // ContactLast
+            // 
+            this.ContactLast.HeaderText = "Contact Last Name";
+            this.ContactLast.MinimumWidth = 6;
+            this.ContactLast.Name = "ContactLast";
+            this.ContactLast.Width = 125;
+            // 
+            // ContactNumber
+            // 
+            this.ContactNumber.HeaderText = "ContactNumber";
+            this.ContactNumber.MinimumWidth = 6;
+            this.ContactNumber.Name = "ContactNumber";
+            this.ContactNumber.Width = 125;
             // 
             // txtClientName
             // 
@@ -180,7 +223,7 @@ namespace Relationship_manager_administration_system
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(655, 28);
+            this.btnClear.Location = new System.Drawing.Point(694, 21);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(105, 53);
             this.btnClear.TabIndex = 10;
@@ -190,21 +233,23 @@ namespace Relationship_manager_administration_system
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(655, 90);
+            this.btnUpdate.Location = new System.Drawing.Point(694, 80);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(105, 53);
             this.btnUpdate.TabIndex = 11;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(655, 153);
+            this.btnDelete.Location = new System.Drawing.Point(694, 140);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(105, 53);
             this.btnDelete.TabIndex = 12;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnExit
             // 
@@ -250,53 +295,22 @@ namespace Relationship_manager_administration_system
             this.label6.TabIndex = 17;
             this.label6.Text = "Last Name";
             // 
-            // id
+            // btnInsert
             // 
-            this.id.HeaderText = "ID";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.Width = 125;
-            // 
-            // client
-            // 
-            this.client.HeaderText = "client";
-            this.client.MinimumWidth = 6;
-            this.client.Name = "client";
-            this.client.Width = 125;
-            // 
-            // email
-            // 
-            this.email.HeaderText = "email";
-            this.email.MinimumWidth = 6;
-            this.email.Name = "email";
-            this.email.Width = 125;
-            // 
-            // ContactFirst
-            // 
-            this.ContactFirst.HeaderText = "Contact First Name";
-            this.ContactFirst.MinimumWidth = 6;
-            this.ContactFirst.Name = "ContactFirst";
-            this.ContactFirst.Width = 125;
-            // 
-            // ContactLast
-            // 
-            this.ContactLast.HeaderText = "Contact Last Name";
-            this.ContactLast.MinimumWidth = 6;
-            this.ContactLast.Name = "ContactLast";
-            this.ContactLast.Width = 125;
-            // 
-            // ContactNumber
-            // 
-            this.ContactNumber.HeaderText = "ContactNumber";
-            this.ContactNumber.MinimumWidth = 6;
-            this.ContactNumber.Name = "ContactNumber";
-            this.ContactNumber.Width = 125;
+            this.btnInsert.Location = new System.Drawing.Point(694, 199);
+            this.btnInsert.Name = "btnInsert";
+            this.btnInsert.Size = new System.Drawing.Size(105, 53);
+            this.btnInsert.TabIndex = 18;
+            this.btnInsert.Text = "Insert";
+            this.btnInsert.UseVisualStyleBackColor = true;
+            this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
             // 
             // ClientAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(811, 485);
+            this.Controls.Add(this.btnInsert);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtContactLast);
             this.Controls.Add(this.lblLoggedInRM);
@@ -351,5 +365,6 @@ namespace Relationship_manager_administration_system
         private DataGridViewTextBoxColumn ContactFirst;
         private DataGridViewTextBoxColumn ContactLast;
         private DataGridViewTextBoxColumn ContactNumber;
+        private Button btnInsert;
     }
 }

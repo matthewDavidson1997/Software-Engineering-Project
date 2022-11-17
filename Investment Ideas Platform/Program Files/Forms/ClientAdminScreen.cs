@@ -15,7 +15,6 @@ namespace Relationship_manager_administration_system
         {
             InitializeComponent();
             user = passedUser;
-
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -44,5 +43,22 @@ namespace Relationship_manager_administration_system
             ExitBackend.exitProgram();
         }
 
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            ClientAdminBackend.UpdateClientInformation(txtClientName, txtEmail, txtContactFirst, txtContactLast, txtContactNumber, lblClientReference);
+            ClientAdminBackend.clientAdmin_Load(dgvClients, txtClientName, txtEmail, txtContactFirst, txtContactLast, txtContactNumber, lblClientReference, user.id, lblLoggedInRM);
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            ClientAdminBackend.DeleteClient(lblClientReference);
+            ClientAdminBackend.clientAdmin_Load(dgvClients, txtClientName, txtEmail, txtContactFirst, txtContactLast, txtContactNumber, lblClientReference, user.id, lblLoggedInRM);
+        }
+
+        private void btnInsert_Click(object sender, EventArgs e)
+        {
+            ClientAdminBackend.CreateClient(txtClientName, txtEmail, txtContactFirst, txtContactLast, txtContactNumber, user.id);
+            ClientAdminBackend.clientAdmin_Load(dgvClients, txtClientName, txtEmail, txtContactFirst, txtContactLast, txtContactNumber, lblClientReference, user.id, lblLoggedInRM);
+        }
     }
 }

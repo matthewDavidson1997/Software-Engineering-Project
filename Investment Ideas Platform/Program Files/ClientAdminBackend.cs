@@ -156,7 +156,7 @@ namespace Relationship_manager_administration_system
 			Debug.WriteLine("ccn true");
 			return true;
 		}
-
+		// USED FOR VALIDATING EMAIL ADDRESS https://learn.microsoft.com/en-us/dotnet/api/system.net.mail.mailaddress?view=netcore-3.1
 		private static bool isEmailValid(string email) {
 			try
 			{

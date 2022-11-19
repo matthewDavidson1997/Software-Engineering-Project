@@ -1,8 +1,9 @@
 ﻿using System;
 
-public class RelationshipManager : User
+public class RelationshipManager
 {
 	public RelationshipManager()
 	{
+
 	}
 }

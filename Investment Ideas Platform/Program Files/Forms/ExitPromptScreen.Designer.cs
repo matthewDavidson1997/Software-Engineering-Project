@@ -1,4 +1,6 @@
 ﻿
+using System;
+
 namespace Relationship_manager_administration_system
 {
     partial class ExitPopUp
@@ -73,6 +75,7 @@ namespace Relationship_manager_administration_system
             this.Controls.Add(this.label1);
             this.Name = "ExitPopUp";
             this.Text = "Exit";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.exitPopUp_Closing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -83,6 +83,7 @@ namespace Relationship_manager_administration_system
             this.btnYourDetails.TabIndex = 4;
             this.btnYourDetails.Text = "Your Details";
             this.btnYourDetails.UseVisualStyleBackColor = true;
+            this.btnYourDetails.Click += new System.EventHandler(this.btnYourDetails_Click);
             // 
             // lblLoggedInRmId
             // 

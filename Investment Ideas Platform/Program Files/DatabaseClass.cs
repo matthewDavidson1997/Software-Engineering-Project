@@ -11,11 +11,19 @@ namespace Relationship_manager_administration_system
     {
         private static SqlConnection connection = new SqlConnection("Server=tcp:rmas-server.database.windows.net,1433;Initial Catalog=RelationshipManagerAdministrationSystemDB;Persist Security Info=False;User ID=FreddieFaulkner;Password=Goonerfred03;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
 
-        public static DataTable GetPotentialUser(string username) {
+        public static DataTable GetPotentialUser(string username, string role) {
             DataTable potentialUser = new DataTable();
+            SqlDataAdapter adapter;
 
             connection.Open();
-            SqlDataAdapter adapter = new SqlDataAdapter(@"SELECT rmID, Email, [Password] FROM [dbo].[tblRelationshipManagers] WHERE Email = '" + username + "'", connection);
+            if (role.Equals("Relationship Manager"))
+            {
+                adapter = new SqlDataAdapter(@"SELECT rmID, Email, [Password] FROM [dbo].[tblRelationshipManagers] WHERE Email = '" + username + "'", connection);
+            }
+            else {
+                adapter = new SqlDataAdapter(@"SELECT icID, email, [password] FROM [dbo].[tblIdeaCreator] WHERE Email = '" + username + "'", connection);
+            }
+
             adapter.Fill(potentialUser);
             connection.Close();
 

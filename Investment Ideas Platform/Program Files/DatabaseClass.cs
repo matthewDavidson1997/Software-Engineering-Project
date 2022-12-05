@@ -86,5 +86,21 @@ namespace Relationship_manager_administration_system
             command.ExecuteNonQuery();
             connection.Close();
         }
+
+        public static void AddIdea(Idea idea, int id) {
+            connection.Open();
+            SqlCommand command = new SqlCommand("INSERT INTO [dbo].[tblIdeas] (Title, Summary, ExpiryDate, IdeaCreator, LongDescription, RiskRating, ProductType, Instruments, Currency, MajorSector, MinorSector, Country, Region) VALUES ('" + idea.title + "', '" + idea.summary + "', '" + idea.expiary + "', '" + id + "', '" + idea.description + "', '" + idea.riskRaiting + "', '" + idea.productType + "', '" + idea.instrument + "', '" + idea.currency + "', '" + idea.majorSector + "', '" + idea.minorSector + "', '" + idea.country + "', '" + idea.region +"')", connection);
+            command.ExecuteNonQuery();
+            connection.Close();
+        }
+
+        public static DataTable GetMyIdeas(int id) {
+            DataTable ideas = new DataTable();
+            connection.Open();
+            SqlDataAdapter adapter = new SqlDataAdapter(@"SELECT Title, Summary, ExpiryDate, LongDescription, RiskRating, ProductType, Instruments, Currency, MajorSector, MinorSector, Country, Region FROM [dbo].[tblIdeas] WHERE IdeaCreator= '"+ id +"'", connection);
+            adapter.Fill(ideas);
+            connection.Close();
+            return ideas;
+        }
     }
 }

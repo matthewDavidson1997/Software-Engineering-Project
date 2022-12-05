@@ -32,5 +32,15 @@ namespace Relationship_manager_administration_system
         {
             IdeaCreatorHomeBackend.IdeaCreatorHome_Load(lblIdeaCreatorLoggedIn, user.id);
         }
+
+        private void btnMyIdeas_Click(object sender, EventArgs e)
+        {
+            IdeaCreatorHomeBackend.GoToShowMyIdeas(this, user.id);
+        }
+
+        private void btnNewIdeas_Click(object sender, EventArgs e)
+        {
+            IdeaCreatorHomeBackend.ShowAddIdea(this, user.id);
+        }
     }
 }

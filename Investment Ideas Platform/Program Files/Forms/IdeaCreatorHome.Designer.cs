@@ -31,16 +31,19 @@ namespace Relationship_manager_administration_system
         {
             this.lblIdeaCreatorLoggedIn = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
+            this.btnMyIdeas = new System.Windows.Forms.Button();
+            this.btnNewIdeas = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblIdeaCreatorLoggedIn
             // 
             this.lblIdeaCreatorLoggedIn.AutoSize = true;
-            this.lblIdeaCreatorLoggedIn.Location = new System.Drawing.Point(668, 421);
+            this.lblIdeaCreatorLoggedIn.Location = new System.Drawing.Point(653, 412);
             this.lblIdeaCreatorLoggedIn.Name = "lblIdeaCreatorLoggedIn";
-            this.lblIdeaCreatorLoggedIn.Size = new System.Drawing.Size(50, 20);
+            this.lblIdeaCreatorLoggedIn.Size = new System.Drawing.Size(91, 20);
             this.lblIdeaCreatorLoggedIn.TabIndex = 0;
-            this.lblIdeaCreatorLoggedIn.Text = "label1";
+            this.lblIdeaCreatorLoggedIn.Text = "Idea Creator";
             // 
             // btnExit
             // 
@@ -52,11 +55,43 @@ namespace Relationship_manager_administration_system
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // btnMyIdeas
+            // 
+            this.btnMyIdeas.Location = new System.Drawing.Point(325, 132);
+            this.btnMyIdeas.Name = "btnMyIdeas";
+            this.btnMyIdeas.Size = new System.Drawing.Size(129, 58);
+            this.btnMyIdeas.TabIndex = 2;
+            this.btnMyIdeas.Text = "My Ideas";
+            this.btnMyIdeas.UseVisualStyleBackColor = true;
+            this.btnMyIdeas.Click += new System.EventHandler(this.btnMyIdeas_Click);
+            // 
+            // btnNewIdeas
+            // 
+            this.btnNewIdeas.Location = new System.Drawing.Point(325, 208);
+            this.btnNewIdeas.Name = "btnNewIdeas";
+            this.btnNewIdeas.Size = new System.Drawing.Size(129, 58);
+            this.btnNewIdeas.TabIndex = 3;
+            this.btnNewIdeas.Text = "New Idea";
+            this.btnNewIdeas.UseVisualStyleBackColor = true;
+            this.btnNewIdeas.Click += new System.EventHandler(this.btnNewIdeas_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(325, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(136, 20);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Idea Creator Home";
+            // 
             // IdeaCreatorHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnNewIdeas);
+            this.Controls.Add(this.btnMyIdeas);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.lblIdeaCreatorLoggedIn);
             this.Name = "IdeaCreatorHome";
@@ -71,5 +106,8 @@ namespace Relationship_manager_administration_system
 
         private System.Windows.Forms.Label lblIdeaCreatorLoggedIn;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button btnMyIdeas;
+        private System.Windows.Forms.Button btnNewIdeas;
+        private System.Windows.Forms.Label label1;
     }
 }

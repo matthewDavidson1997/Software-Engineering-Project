@@ -191,6 +191,18 @@ namespace Relationship_manager_administration_system
 			return false;
 		}
 
+		public static void updatePreferences(Form form, Label lblClientReference) {
+			if (ClientAdminBackend.containsInt(lblClientReference.Text.ToString()))
+			{
+				int id = ClientAdminBackend.FormatClientID(lblClientReference);
+				UpdatePreferencesScreen updatePreferencesScreen = new UpdatePreferencesScreen(id);
+				updatePreferencesScreen.Show();
+				form.Close();
+			}
+			else {
+				Debug.WriteLine("Client ID not selected");
+			}
 
+		}
 	}
 }

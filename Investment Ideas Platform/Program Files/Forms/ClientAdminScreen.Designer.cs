@@ -60,6 +60,7 @@ namespace Relationship_manager_administration_system
             this.txtContactLast = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.btnInsert = new System.Windows.Forms.Button();
+            this.btnUpdatePreferences = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClients)).BeginInit();
             this.SuspendLayout();
             // 
@@ -305,11 +306,22 @@ namespace Relationship_manager_administration_system
             this.btnInsert.UseVisualStyleBackColor = true;
             this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
             // 
+            // btnUpdatePreferences
+            // 
+            this.btnUpdatePreferences.Location = new System.Drawing.Point(569, 21);
+            this.btnUpdatePreferences.Name = "btnUpdatePreferences";
+            this.btnUpdatePreferences.Size = new System.Drawing.Size(105, 53);
+            this.btnUpdatePreferences.TabIndex = 19;
+            this.btnUpdatePreferences.Text = "Update Preferences";
+            this.btnUpdatePreferences.UseVisualStyleBackColor = true;
+            this.btnUpdatePreferences.Click += new System.EventHandler(this.btnUpdatePreferences_Click);
+            // 
             // ClientAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(811, 485);
+            this.Controls.Add(this.btnUpdatePreferences);
             this.Controls.Add(this.btnInsert);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtContactLast);
@@ -366,5 +378,6 @@ namespace Relationship_manager_administration_system
         private DataGridViewTextBoxColumn ContactLast;
         private DataGridViewTextBoxColumn ContactNumber;
         private Button btnInsert;
+        private Button btnUpdatePreferences;
     }
 }

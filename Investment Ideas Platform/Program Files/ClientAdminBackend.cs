@@ -191,13 +191,14 @@ namespace Relationship_manager_administration_system
 			return false;
 		}
 
-		public static void updatePreferences(Form form, Label lblClientReference) {
-			if (ClientAdminBackend.containsInt(lblClientReference.Text.ToString()))
+		public static void updatePreferences(Form passedForm, Label lblClientReference, Label lblLoggedInRM) {
+			if (ClientAdminBackend.containsInt(lblClientReference.Text.ToString()) && ClientAdminBackend.containsInt(lblLoggedInRM.Text.ToString()))
 			{
-				int id = ClientAdminBackend.FormatClientID(lblClientReference);
-				UpdatePreferencesScreen updatePreferencesScreen = new UpdatePreferencesScreen(id);
+				int clientId = ClientAdminBackend.FormatClientID(lblClientReference);
+				int rmID = ClientAdminBackend.FormatClientID(lblLoggedInRM);
+				UpdatePreferencesScreen updatePreferencesScreen = new UpdatePreferencesScreen(clientId, rmID);
 				updatePreferencesScreen.Show();
-				form.Close();
+				passedForm.Hide();
 			}
 			else {
 				Debug.WriteLine("Client ID not selected");

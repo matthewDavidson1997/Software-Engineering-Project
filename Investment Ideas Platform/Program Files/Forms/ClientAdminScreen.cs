@@ -63,7 +63,7 @@ namespace Relationship_manager_administration_system
 
         private void btnUpdatePreferences_Click(object sender, EventArgs e)
         {
-            ClientAdminBackend.updatePreferences(this, lblClientReference);
+            ClientAdminBackend.updatePreferences(this, lblClientReference, lblLoggedInRM);
         }
     }
 }

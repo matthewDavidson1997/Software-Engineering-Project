@@ -10,11 +10,27 @@ namespace Relationship_manager_administration_system
 {
     public partial class UpdatePreferencesScreen : Form
     {
-        int rmID;
-        public UpdatePreferencesScreen(int id)
+        int clientID, rmID;
+        public UpdatePreferencesScreen(int clientId, int rmId)
         {
             InitializeComponent();
-            rmID = id;
+            clientID = clientId;
+            rmID = rmId;
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            ExitBackend.buttonClicked(this);
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            UpdatePreferences.packagePreferences(cbMajorSector, cbMinorSector, cbCurrency, cbCountry, cbProductType, cbRiskRaiting, clientID);
+        }
+
+        private void UpdatePreferencesScreen_Load(object sender, EventArgs e)
+        {
+            UpdatePreferences.loadWindow(cbMajorSector, cbMinorSector, cbCurrency, cbCountry, cbProductType, cbRiskRaiting, lblClientReference, lblLoggedInRm, clientID, rmID);
         }
     }
 }

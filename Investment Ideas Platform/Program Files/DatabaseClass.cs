@@ -102,5 +102,13 @@ namespace Relationship_manager_administration_system
             connection.Close();
             return ideas;
         }
+
+        public static void updatePreferences(Preferences newPreferences, int clientId) {
+            connection.Open();
+            SqlCommand command = new SqlCommand("UPDATE [dbo].[tblClients] SET riskRaitingPreference = '"+newPreferences.riskRaiting+"', productTypePreference = '"+newPreferences.productType+"', CurencyPreferences = '"+newPreferences.currency+"', MajorSectorPreferences = '"+newPreferences.majorSector+"', MinorSectorPreferences = '"+newPreferences.minorSector+"', countryPreference = '"+newPreferences.country+"' WHERE clientID = '"+clientId+"'", connection);
+            command.ExecuteNonQuery();
+            Debug.WriteLine("UPDATE [dbo].[tblClients] SET riskRaitingPreference = '" + newPreferences.riskRaiting + "', productTypePreference = '" + newPreferences.productType + "', CurencyPreferences = '" + newPreferences.currency + "', MajorSectorPreferences = '" + newPreferences.majorSector + "', MinorSectorPreferences = '" + newPreferences.minorSector + "', countryPreference = '" + newPreferences.country + "' WHERE clientID = '" + clientId + "'");
+            connection.Close();
+        }
     }
 }

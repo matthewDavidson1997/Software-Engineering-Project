@@ -16,9 +16,9 @@ namespace Relationship_manager_administration_system
             exitPopUp.Show();
         }
         public static void exitProgram() {
-            // exits program with return code 0 no faults
-            Environment.Exit(0);
-        }
+           //  exits program
+            Application.Exit();
+         }
 
         public static void cancelExit(Form passedForm, ExitPopUp exitPopUp) {
             // used to reinable original form is cancell button is clicked

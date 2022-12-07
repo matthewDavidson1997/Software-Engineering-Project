@@ -184,7 +184,6 @@ namespace Relationship_manager_administration_system
             this.Name = "ShowMyIdeasScreen";
             this.Text = "ShowMyIdeasScreen";
             this.Load += new System.EventHandler(this.ShowMyIdeasScreen_Load);
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ShowMyIdeasScreen_Closing);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

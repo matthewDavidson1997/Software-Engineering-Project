@@ -396,7 +396,6 @@ namespace Relationship_manager_administration_system
             this.Controls.Add(this.label1);
             this.Name = "AddIdeaScreen";
             this.Text = "AddIdeaScreen";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddIdeaScreen_Closing);
             this.Load += new System.EventHandler(this.AddIdeaScreen_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

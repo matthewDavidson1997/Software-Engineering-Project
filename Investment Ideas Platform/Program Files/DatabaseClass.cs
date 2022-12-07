@@ -11,7 +11,8 @@ namespace Relationship_manager_administration_system
     {
         private static SqlConnection connection = new SqlConnection("Server=tcp:rmas-server.database.windows.net,1433;Initial Catalog=RelationshipManagerAdministrationSystemDB;Persist Security Info=False;User ID=FreddieFaulkner;Password=Goonerfred03;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
 
-        public static DataTable GetPotentialUser(string username, string role) {
+        public static DataTable GetPotentialUser(string username, string role)
+        {
             DataTable potentialUser = new DataTable();
             SqlDataAdapter adapter;
 
@@ -20,7 +21,8 @@ namespace Relationship_manager_administration_system
             {
                 adapter = new SqlDataAdapter(@"SELECT rmID, Email, [Password] FROM [dbo].[tblRelationshipManagers] WHERE Email = '" + username + "'", connection);
             }
-            else {
+            else
+            {
                 adapter = new SqlDataAdapter(@"SELECT icID, email, [password] FROM [dbo].[tblIdeaCreator] WHERE Email = '" + username + "'", connection);
             }
 
@@ -32,7 +34,8 @@ namespace Relationship_manager_administration_system
             return potentialUser;
         }
 
-        public static DataTable GetClients(int rmid) {
+        public static DataTable GetClients(int rmid)
+        {
             DataTable clients = new DataTable();
 
             connection.Open();
@@ -43,13 +46,16 @@ namespace Relationship_manager_administration_system
             return clients;
         }
 
-        public static void UpdateClientData(int clientReference, string client, string email, string contactFirst, string contactLast, string contactNumber) {
-            try {
+        public static void UpdateClientData(int clientReference, string client, string email, string contactFirst, string contactLast, string contactNumber)
+        {
+            try
+            {
                 connection.Open();
                 SqlCommand command = new SqlCommand("UPDATE [dbo].[tblClients] SET Company='" + client + "', Email='" + email + "', FirstName='" + contactFirst + "', LastName='" + contactLast + "', Phone='" + contactNumber + "' WHERE clientID ='" + clientReference + "'", connection);
                 command.ExecuteNonQuery();
             }
-            catch {
+            catch
+            {
                 Debug.WriteLine("Empty data fields!");
             }
 
@@ -57,21 +63,24 @@ namespace Relationship_manager_administration_system
 
         }
 
-        public static void DeleteClient(int clientReference) {
+        public static void DeleteClient(int clientReference)
+        {
             try
             {
                 connection.Open();
                 SqlCommand command = new SqlCommand("DELETE FROM [dbo].[tblClients] WHERE ClientID= '" + clientReference + "'", connection);
                 command.ExecuteNonQuery();
             }
-            catch {
+            catch
+            {
                 Debug.WriteLine("Empty Data fields!");
             }
 
             connection.Close();
         }
 
-        public static DataTable getClientEmails() {
+        public static DataTable getClientEmails()
+        {
             DataTable emails = new DataTable();
             connection.Open();
             SqlDataAdapter adapter = new SqlDataAdapter(@"SELECT Email FROM [dbo].[tblClients]", connection);
@@ -80,14 +89,16 @@ namespace Relationship_manager_administration_system
             return emails;
         }
 
-        public static void createClient(string client, string email, string contactFirstName, string contactLastName, string contactNumber, int rmID) {
+        public static void createClient(string client, string email, string contactFirstName, string contactLastName, string contactNumber, int rmID)
+        {
             connection.Open();
             SqlCommand command = new SqlCommand("INSERT INTO [dbo].[tblClients] (FirstName, LastName, Email, Phone, Company, rmID) VALUES ('" + contactFirstName + "', '" + contactLastName + "', '" + email + "', '" + contactNumber + "', '" + client + "', '" + rmID + "');", connection);
             command.ExecuteNonQuery();
             connection.Close();
         }
 
-        public static void AddIdea(Idea idea, int id) {
+        public static void AddIdea(Idea idea, int id)
+        {
             connection.Open();
             // https://stackoverflow.com/questions/12393665/the-conversion-of-a-varchar-data-type-to-a-datetime-data-type-resulted-in-an-out
             var sqlFormattedDate = idea.expiary.Date.ToString("yyyy-MM-dd HH:mm:ss");
@@ -97,24 +108,27 @@ namespace Relationship_manager_administration_system
             connection.Close();
         }
 
-        public static DataTable GetMyIdeas(int id) {
+        public static DataTable GetMyIdeas(int id)
+        {
             DataTable ideas = new DataTable();
             connection.Open();
-            SqlDataAdapter adapter = new SqlDataAdapter(@"SELECT Title, Summary, ExpiryDate, LongDescription, RiskRating, ProductType, Instruments, Currency, MajorSector, MinorSector, Country, Region FROM [dbo].[tblIdeas] WHERE IdeaCreator= '"+ id +"'", connection);
+            SqlDataAdapter adapter = new SqlDataAdapter(@"SELECT Title, Summary, ExpiryDate, LongDescription, RiskRating, ProductType, Instruments, Currency, MajorSector, MinorSector, Country, Region FROM [dbo].[tblIdeas] WHERE IdeaCreator= '" + id + "'", connection);
             adapter.Fill(ideas);
             connection.Close();
             return ideas;
         }
 
-        public static void updatePreferences(Preferences newPreferences, int clientId) {
+        public static void updatePreferences(Preferences newPreferences, int clientId)
+        {
             connection.Open();
-            SqlCommand command = new SqlCommand("UPDATE [dbo].[tblClients] SET riskRaitingPreference = '"+newPreferences.riskRaiting+"', productTypePreference = '"+newPreferences.productType+"', CurencyPreferences = '"+newPreferences.currency+"', MajorSectorPreferences = '"+newPreferences.majorSector+"', MinorSectorPreferences = '"+newPreferences.minorSector+"', countryPreference = '"+newPreferences.country+"' WHERE clientID = '"+clientId+"'", connection);
+            SqlCommand command = new SqlCommand("UPDATE [dbo].[tblClients] SET riskRaitingPreference = '" + newPreferences.riskRaiting + "', productTypePreference = '" + newPreferences.productType + "', CurencyPreferences = '" + newPreferences.currency + "', MajorSectorPreferences = '" + newPreferences.majorSector + "', MinorSectorPreferences = '" + newPreferences.minorSector + "', countryPreference = '" + newPreferences.country + "' WHERE clientID = '" + clientId + "'", connection);
             command.ExecuteNonQuery();
             Debug.WriteLine("UPDATE [dbo].[tblClients] SET riskRaitingPreference = '" + newPreferences.riskRaiting + "', productTypePreference = '" + newPreferences.productType + "', CurencyPreferences = '" + newPreferences.currency + "', MajorSectorPreferences = '" + newPreferences.majorSector + "', MinorSectorPreferences = '" + newPreferences.minorSector + "', countryPreference = '" + newPreferences.country + "' WHERE clientID = '" + clientId + "'");
             connection.Close();
         }
 
-        public static DataTable getPreferences(int clientID) {
+        public static DataTable getPreferences(int clientID)
+        {
             DataTable preferences = new DataTable();
             connection.Open();
             SqlDataAdapter adapter = new SqlDataAdapter(@"SELECT riskRaitingPreference, productTypePreference, CurencyPreferences, MajorSectorPreferences, MinorSectorPreferences, CountryPreference FROM [dbo].[tblClients] WHERE clientId= '" + clientID + "'", connection);
@@ -123,7 +137,8 @@ namespace Relationship_manager_administration_system
             return preferences;
         }
 
-        public static DataTable getReleventIdeas(Preferences preferences) {
+        public static DataTable getReleventIdeas(Preferences preferences)
+        {
             DataTable ideas = new DataTable();
             connection.Open();
             // https://stackoverflow.com/questions/12393665/the-conversion-of-a-varchar-data-type-to-a-datetime-data-type-resulted-in-an-out
@@ -135,7 +150,8 @@ namespace Relationship_manager_administration_system
             return ideas;
         }
 
-        public static void purchaseProduct(string productTitle, int clientReference) {
+        public static void purchaseProduct(string productTitle, int clientReference)
+        {
             connection.Open();
             SqlCommand command = new SqlCommand("UPDATE [dbo].[tblIdeas] SET OwnedBy = '" + clientReference + "' WHERE title = '" + productTitle + "'", connection);
             command.ExecuteNonQuery();

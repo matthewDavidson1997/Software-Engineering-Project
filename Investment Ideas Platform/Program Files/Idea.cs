@@ -10,6 +10,7 @@ namespace Relationship_manager_administration_system
         public int riskRaiting;
         public DateTime expiary;
         public Idea(string title, string summary, string description, string instrument, string majorSector, string country, string region, string minorSector, string productType, int riskRaiting, DateTime expiary, string currency) {
+            
             this.title = title;
             this.summary = summary;
             this.description = description;

@@ -32,5 +32,10 @@ namespace Relationship_manager_administration_system
         {
             UpdatePreferences.loadWindow(cbMajorSector, cbMinorSector, cbCurrency, cbCountry, cbProductType, cbRiskRaiting, lblClientReference, lblLoggedInRm, clientID, rmID);
         }
+
+        private void UpdatePreferencesScreen_Closing(object sender, FormClosingEventArgs e)
+        {
+            ExitBackend.exitProgram();
+        }
     }
 }

@@ -25,7 +25,7 @@ namespace Relationship_manager_administration_system
 
         public static void packageText(TextBox txtTitle, TextBox txtSummary, TextBox txtLongDescription, DateTimePicker dtpExpiary, ComboBox cbRiskRaiting, ComboBox cbInstruments, ComboBox cbMajorSector, ComboBox cbRegion, ComboBox cbCountry, ComboBox cbMinorSector, ComboBox cbProductType, ComboBox cbCurrency, int id) {
             if (checkEntries(txtTitle, txtSummary, txtLongDescription, dtpExpiary)){
-                Idea idea = new Idea(txtTitle.Text.ToString(), txtSummary.Text.ToString(), txtLongDescription.Text.ToString(), cbInstruments.Text.ToString(), cbMajorSector.Text.ToString(), cbCountry.Text.ToString(), cbRegion.Text.ToString(), cbMinorSector.Text.ToString(), cbProductType.Text.ToString(), Convert.ToInt32(cbRiskRaiting.Text.ToString()), dtpExpiary.Value.Date, cbCurrency.Text.ToString());
+                Idea idea = new Idea(txtTitle.Text.ToString(), txtSummary.Text.ToString(), txtLongDescription.Text.ToString(), cbInstruments.Text.ToString(), cbMajorSector.Text.ToString(), cbCountry.Text.ToString(), cbRegion.Text.ToString(), cbMinorSector.Text.ToString(), cbProductType.Text.ToString(), Convert.ToInt32(cbRiskRaiting.Text.ToString()), dtpExpiary.Value, cbCurrency.Text.ToString());
                 addToDatabase(idea, id);
             }
             else {

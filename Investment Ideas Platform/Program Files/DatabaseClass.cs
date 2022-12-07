@@ -89,7 +89,10 @@ namespace Relationship_manager_administration_system
 
         public static void AddIdea(Idea idea, int id) {
             connection.Open();
-            SqlCommand command = new SqlCommand("INSERT INTO [dbo].[tblIdeas] (Title, Summary, ExpiryDate, IdeaCreator, LongDescription, RiskRating, ProductType, Instruments, Currency, MajorSector, MinorSector, Country, Region) VALUES ('" + idea.title + "', '" + idea.summary + "', '" + idea.expiary + "', '" + id + "', '" + idea.description + "', '" + idea.riskRaiting + "', '" + idea.productType + "', '" + idea.instrument + "', '" + idea.currency + "', '" + idea.majorSector + "', '" + idea.minorSector + "', '" + idea.country + "', '" + idea.region +"')", connection);
+            // https://stackoverflow.com/questions/12393665/the-conversion-of-a-varchar-data-type-to-a-datetime-data-type-resulted-in-an-out
+            var sqlFormattedDate = idea.expiary.Date.ToString("yyyy-MM-dd HH:mm:ss");
+            SqlCommand command = new SqlCommand($"INSERT INTO [dbo].[tblIdeas] (Title, Summary, ExpiryDate, IdeaCreator, LongDescription, RiskRating, ProductType, Instruments, Currency, MajorSector, MinorSector, Country, Region) VALUES (\'{idea.title}\', \'{idea.summary}\', \'{sqlFormattedDate}\', \'{id}\', \'{idea.description}\', \'{idea.riskRaiting}\', \'{idea.productType}\', \'{idea.instrument}\', \'{idea.currency}\', \'{idea.majorSector}\', \'{idea.minorSector}\', \'{idea.country}\', \'{idea.region}\')", connection);
+            Debug.WriteLine($@"INSERT INTO [dbo].[tblIdeas] (Title, Summary, ExpiryDate, IdeaCreator, LongDescription, RiskRating, ProductType, Instruments, Currency, MajorSector, MinorSector, Country, Region) VALUES ({idea.title}, {idea.summary}, {Convert.ToDateTime(idea.expiary)}, {id}, {idea.description}, {idea.riskRaiting}, {idea.productType}, {idea.instrument}, {idea.currency}, {idea.majorSector}, {idea.minorSector}, {idea.country}, {idea.region})");
             command.ExecuteNonQuery();
             connection.Close();
         }
@@ -108,6 +111,34 @@ namespace Relationship_manager_administration_system
             SqlCommand command = new SqlCommand("UPDATE [dbo].[tblClients] SET riskRaitingPreference = '"+newPreferences.riskRaiting+"', productTypePreference = '"+newPreferences.productType+"', CurencyPreferences = '"+newPreferences.currency+"', MajorSectorPreferences = '"+newPreferences.majorSector+"', MinorSectorPreferences = '"+newPreferences.minorSector+"', countryPreference = '"+newPreferences.country+"' WHERE clientID = '"+clientId+"'", connection);
             command.ExecuteNonQuery();
             Debug.WriteLine("UPDATE [dbo].[tblClients] SET riskRaitingPreference = '" + newPreferences.riskRaiting + "', productTypePreference = '" + newPreferences.productType + "', CurencyPreferences = '" + newPreferences.currency + "', MajorSectorPreferences = '" + newPreferences.majorSector + "', MinorSectorPreferences = '" + newPreferences.minorSector + "', countryPreference = '" + newPreferences.country + "' WHERE clientID = '" + clientId + "'");
+            connection.Close();
+        }
+
+        public static DataTable getPreferences(int clientID) {
+            DataTable preferences = new DataTable();
+            connection.Open();
+            SqlDataAdapter adapter = new SqlDataAdapter(@"SELECT riskRaitingPreference, productTypePreference, CurencyPreferences, MajorSectorPreferences, MinorSectorPreferences, CountryPreference FROM [dbo].[tblClients] WHERE clientId= '" + clientID + "'", connection);
+            adapter.Fill(preferences);
+            connection.Close();
+            return preferences;
+        }
+
+        public static DataTable getReleventIdeas(Preferences preferences) {
+            DataTable ideas = new DataTable();
+            connection.Open();
+            // https://stackoverflow.com/questions/12393665/the-conversion-of-a-varchar-data-type-to-a-datetime-data-type-resulted-in-an-out
+            var sqlFormattedDate = DateTime.Today.Date.ToString("yyyy-MM-dd HH:mm:ss");
+            SqlDataAdapter adapter = new SqlDataAdapter($"SELECT Title, Summary, ExpiryDate, LongDescription, RiskRating, ProductType, Instruments, Currency, MajorSector, MinorSector, Country, Region FROM [dbo].[tblIdeas] WHERE (RiskRating <= {preferences.riskRaiting}) AND (ProductType = \'{preferences.productType}\') AND (Currency = \'{preferences.currency}\') AND MajorSector = \'{preferences.majorSector}\' AND (MinorSector= \'{preferences.minorSector}\') AND (Country= \'{preferences.country}\') AND (ExpiryDate > \'{sqlFormattedDate}\') AND (OwnedBy IS NULL)", connection);
+            Debug.WriteLine($"SELECT Title, Summary, ExpiryDate, LongDescription, RiskRating, ProductType, Instruments, Currency, MajorSector, MinorSector, Country, Region FROM [dbo].[tblIdeas] WHERE (RiskRating <= {preferences.riskRaiting}) AND (ProductType = {preferences.productType}) AND (Currency = {preferences.currency}) AND MajorSector = {preferences.majorSector} AND (MinorSector= {preferences.minorSector}) AND (Country= {preferences.country}) AND (ExpiayDate > {DateTime.Today}) AND (OwnedBy IS NULL)");
+            adapter.Fill(ideas);
+            connection.Close();
+            return ideas;
+        }
+
+        public static void purchaseProduct(string productTitle, int clientReference) {
+            connection.Open();
+            SqlCommand command = new SqlCommand("UPDATE [dbo].[tblIdeas] SET OwnedBy = '" + clientReference + "' WHERE title = '" + productTitle + "'", connection);
+            command.ExecuteNonQuery();
             connection.Close();
         }
     }

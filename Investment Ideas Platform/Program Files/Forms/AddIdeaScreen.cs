@@ -37,5 +37,10 @@ namespace Relationship_manager_administration_system
         {
             AddIdeaBackend.packageText(txtTitle, txtSummary, txtLongDescription, dtpExpirayDate, cbRiskRaiting, cbInstruments, cbMajorSector, cbRegion, cbCountry, cbMinorSector, cbProductType, cbCurrency, ideaCreatorID);
         }
+
+        private void AddIdeaScreen_Closing(object sender, FormClosingEventArgs e)
+        {
+            ExitBackend.exitProgram();
+        }
     }
 }

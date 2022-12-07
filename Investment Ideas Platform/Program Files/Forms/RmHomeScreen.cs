@@ -37,9 +37,9 @@ namespace Relationship_manager_administration_system
             ExitBackend.exitProgram();
         }
 
-        private void btnYourDetails_Click(object sender, EventArgs e)
+        private void btnPurchaseIdeas_Click(object sender, EventArgs e)
         {
-
+            RmHomeScreenBackend.purchaseIdeasButtonClicked(user.id, this);
         }
     }
 }

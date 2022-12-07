@@ -262,6 +262,7 @@ namespace Relationship_manager_administration_system
             this.Name = "UpdatePreferencesScreen";
             this.Text = "UpdatePreferencesScreen";
             this.Load += new System.EventHandler(this.UpdatePreferencesScreen_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UpdatePreferencesScreen_Closing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

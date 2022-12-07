@@ -26,5 +26,10 @@ namespace Relationship_manager_administration_system
         {
             ExitBackend.buttonClicked(this);
         }
+
+        private void ShowMyIdeasScreen_Closing(object sender, FormClosingEventArgs e)
+        {
+            ExitBackend.exitProgram();
+        }
     }
 }

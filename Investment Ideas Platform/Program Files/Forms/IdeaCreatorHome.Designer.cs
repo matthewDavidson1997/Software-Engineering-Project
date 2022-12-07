@@ -96,6 +96,7 @@ namespace Relationship_manager_administration_system
             this.Controls.Add(this.lblIdeaCreatorLoggedIn);
             this.Name = "IdeaCreatorHome";
             this.Text = "IdeaCreatorHome";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.IdeaCreatorHome_Closing);
             this.Load += new System.EventHandler(this.IdeaCreatorHome_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -17,5 +17,11 @@ namespace Relationship_manager_administration_system
             lblLoggedInRmId.Text = "Logged In RM ID: " + user.id;
         }
 
+        public static void purchaseIdeasButtonClicked(int rmid, Form passedForm) {
+            PurchaseProducts purchaseProducts = new PurchaseProducts(rmid);
+            purchaseProducts.Show();
+            passedForm.Hide();
+        }
+
     }
 }

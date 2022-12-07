@@ -18,21 +18,26 @@ namespace Relationship_manager_administration_system
             String email = txtEmail.Text.ToString();
             String password = txtPassword.Text.ToString();
 
-            if (cbAccountType.Text == "Relationship Manager")
+            if (RMLoginBackend.rmLoginBackendReturn(role, email, password))
             {
-                if (RMLoginBackend.rmLoginBackendReturn(role, email, password))
+                int id = RMLoginBackend.ReturnID();
+                lblLoginFail.Visible = false;
+                User user = new User(id, email, password, role);
+                if (role.Equals("Relationship Manager"))
                 {
-                    int id = RMLoginBackend.ReturnID();
-                    lblLoginFail.Visible = false;
-                    User user = new User(id, email, password, role);
                     RmHomeScreen rmHomeScreen = new RmHomeScreen(user);
                     rmHomeScreen.Show();
                     form.Hide();
                 }
-                else
-                {
-                    lblLoginFail.Visible = true;
+                else {
+                    IdeaCreatorHome ideaCreatorHome = new IdeaCreatorHome(user);
+                    ideaCreatorHome.Show();
+                    form.Hide();
                 }
+            }
+            else
+            {
+                lblLoginFail.Visible = true;
             }
         }
         private static bool rmLoginBackendReturn(String role, String username, String password)
@@ -40,7 +45,7 @@ namespace Relationship_manager_administration_system
             if (checkCredentials(role, username, password))
             {
                 Debug.WriteLine("got to LPU");
-                LoadPotentialUser(username);
+                LoadPotentialUser(username, role);
 
                 if (checkUserExists()) {
                     if (loginInfoCorrect(password))
@@ -96,10 +101,11 @@ namespace Relationship_manager_administration_system
         }
 
 
-        private static void LoadPotentialUser(string username)
+        private static void LoadPotentialUser(string username, string role)
         {
             Debug.WriteLine("LPU RAN");
-            potentialUser = DatabaseClass.GetPotentialUser(username);
+            potentialUser = DatabaseClass.GetPotentialUser(username, role);
+
         }
 
         private static bool checkUserExists() {

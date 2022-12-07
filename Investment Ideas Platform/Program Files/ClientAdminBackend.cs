@@ -80,7 +80,7 @@ namespace Relationship_manager_administration_system
 			}
 		}
 
-		private static int FormatClientID(Label lblClientReference) {
+		public static int FormatClientID(Label lblClientReference) {
 			string clientReference = lblClientReference.Text.ToString();
 			List<char> idNumberList = new List<char>();
 			char[] clientReferenceArray = clientReference.ToCharArray();
@@ -98,7 +98,7 @@ namespace Relationship_manager_administration_system
 			return Convert.ToInt32(number);
 		}
 
-		private static bool containsInt(string passedString) {
+		public static bool containsInt(string passedString) {
 			foreach (char c in passedString)
 			{
 				if (char.IsDigit(c)) {
@@ -191,6 +191,19 @@ namespace Relationship_manager_administration_system
 			return false;
 		}
 
+		public static void updatePreferences(Form passedForm, Label lblClientReference, Label lblLoggedInRM) {
+			if (ClientAdminBackend.containsInt(lblClientReference.Text.ToString()) && ClientAdminBackend.containsInt(lblLoggedInRM.Text.ToString()))
+			{
+				int clientId = ClientAdminBackend.FormatClientID(lblClientReference);
+				int rmID = ClientAdminBackend.FormatClientID(lblLoggedInRM);
+				UpdatePreferencesScreen updatePreferencesScreen = new UpdatePreferencesScreen(clientId, rmID);
+				updatePreferencesScreen.Show();
+				passedForm.Hide();
+			}
+			else {
+				Debug.WriteLine("Client ID not selected");
+			}
 
+		}
 	}
 }

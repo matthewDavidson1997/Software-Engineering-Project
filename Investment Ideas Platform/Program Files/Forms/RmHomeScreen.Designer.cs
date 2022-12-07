@@ -32,8 +32,7 @@ namespace Relationship_manager_administration_system
             this.label1 = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnClients = new System.Windows.Forms.Button();
-            this.btnIdeas = new System.Windows.Forms.Button();
-            this.btnYourDetails = new System.Windows.Forms.Button();
+            this.btnPurchaseIdeas = new System.Windows.Forms.Button();
             this.lblLoggedInRmId = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -58,7 +57,7 @@ namespace Relationship_manager_administration_system
             // 
             // btnClients
             // 
-            this.btnClients.Location = new System.Drawing.Point(311, 113);
+            this.btnClients.Location = new System.Drawing.Point(311, 152);
             this.btnClients.Name = "btnClients";
             this.btnClients.Size = new System.Drawing.Size(146, 47);
             this.btnClients.TabIndex = 2;
@@ -66,23 +65,15 @@ namespace Relationship_manager_administration_system
             this.btnClients.UseVisualStyleBackColor = true;
             this.btnClients.Click += new System.EventHandler(this.btnClients_Click);
             // 
-            // btnIdeas
+            // btnPurchaseIdeas
             // 
-            this.btnIdeas.Location = new System.Drawing.Point(311, 175);
-            this.btnIdeas.Name = "btnIdeas";
-            this.btnIdeas.Size = new System.Drawing.Size(146, 47);
-            this.btnIdeas.TabIndex = 3;
-            this.btnIdeas.Text = "Ideas";
-            this.btnIdeas.UseVisualStyleBackColor = true;
-            // 
-            // btnYourDetails
-            // 
-            this.btnYourDetails.Location = new System.Drawing.Point(311, 239);
-            this.btnYourDetails.Name = "btnYourDetails";
-            this.btnYourDetails.Size = new System.Drawing.Size(146, 47);
-            this.btnYourDetails.TabIndex = 4;
-            this.btnYourDetails.Text = "Your Details";
-            this.btnYourDetails.UseVisualStyleBackColor = true;
+            this.btnPurchaseIdeas.Location = new System.Drawing.Point(311, 205);
+            this.btnPurchaseIdeas.Name = "btnPurchaseIdeas";
+            this.btnPurchaseIdeas.Size = new System.Drawing.Size(146, 47);
+            this.btnPurchaseIdeas.TabIndex = 3;
+            this.btnPurchaseIdeas.Text = "Pruchase Ideas";
+            this.btnPurchaseIdeas.UseVisualStyleBackColor = true;
+            this.btnPurchaseIdeas.Click += new System.EventHandler(this.btnPurchaseIdeas_Click);
             // 
             // lblLoggedInRmId
             // 
@@ -99,8 +90,7 @@ namespace Relationship_manager_administration_system
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.lblLoggedInRmId);
-            this.Controls.Add(this.btnYourDetails);
-            this.Controls.Add(this.btnIdeas);
+            this.Controls.Add(this.btnPurchaseIdeas);
             this.Controls.Add(this.btnClients);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.label1);
@@ -118,8 +108,7 @@ namespace Relationship_manager_administration_system
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnClients;
-        private System.Windows.Forms.Button btnIdeas;
-        private System.Windows.Forms.Button btnYourDetails;
+        private System.Windows.Forms.Button btnPurchaseIdeas;
         private System.Windows.Forms.Label lblLoggedInRmId;
     }
 }

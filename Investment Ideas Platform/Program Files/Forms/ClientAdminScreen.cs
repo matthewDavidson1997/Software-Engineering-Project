@@ -60,5 +60,10 @@ namespace Relationship_manager_administration_system
             ClientAdminBackend.CreateClient(txtClientName, txtEmail, txtContactFirst, txtContactLast, txtContactNumber, user.id);
             ClientAdminBackend.clientAdmin_Load(dgvClients, txtClientName, txtEmail, txtContactFirst, txtContactLast, txtContactNumber, lblClientReference, user.id, lblLoggedInRM);
         }
+
+        private void btnUpdatePreferences_Click(object sender, EventArgs e)
+        {
+            ClientAdminBackend.updatePreferences(this, lblClientReference, lblLoggedInRM);
+        }
     }
 }

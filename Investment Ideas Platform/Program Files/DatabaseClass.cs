@@ -157,5 +157,24 @@ namespace Relationship_manager_administration_system
             command.ExecuteNonQuery();
             connection.Close();
         }
+
+        public static DataTable getIC(int icID) {
+            DataTable ic = new DataTable();
+            connection.Open();
+            SqlDataAdapter adapter = new SqlDataAdapter(@"SELECT icID, email, [password] FROM [dbo].[tblIdeaCreator] WHERE icID = '" + icID +"'", connection);
+            adapter.Fill(ic);
+            connection.Close();
+            return ic;
+        }
+
+
+        public static DataTable getRM(int rmID){
+            DataTable rm = new DataTable();
+            connection.Open();
+            SqlDataAdapter adapter = new SqlDataAdapter(@"SELECT rmID, email, [password] FROM [dbo].[tblrelationshipmanagerr] WHERE rmID = '" + rmID + "'", connection);
+            adapter.Fill(rm);
+            connection.Close();
+            return rm;
+        }
     }
 }

@@ -55,6 +55,7 @@ namespace Relationship_manager_administration_system
             this.lblClientReference = new System.Windows.Forms.Label();
             this.lblLoggedInRM = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnHome = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClients)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIdeas)).BeginInit();
             this.SuspendLayout();
@@ -284,11 +285,22 @@ namespace Relationship_manager_administration_system
             this.label1.Size = new System.Drawing.Size(0, 20);
             this.label1.TabIndex = 7;
             // 
+            // btnHome
+            // 
+            this.btnHome.Location = new System.Drawing.Point(767, 473);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(114, 57);
+            this.btnHome.TabIndex = 8;
+            this.btnHome.Text = "Home";
+            this.btnHome.UseVisualStyleBackColor = true;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+            // 
             // PurchaseProducts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(893, 542);
+            this.Controls.Add(this.btnHome);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblLoggedInRM);
             this.Controls.Add(this.lblClientReference);
@@ -299,8 +311,8 @@ namespace Relationship_manager_administration_system
             this.Controls.Add(this.dgvClients);
             this.Name = "PurchaseProducts";
             this.Text = "PurchaseProducts";
-            this.Load += new System.EventHandler(this.PurchaseProducts_Load);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PurchaseProducts_Closing);
+            this.Load += new System.EventHandler(this.PurchaseProducts_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvClients)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIdeas)).EndInit();
             this.ResumeLayout(false);
@@ -336,5 +348,6 @@ namespace Relationship_manager_administration_system
         private System.Windows.Forms.DataGridViewTextBoxColumn Region;
         private System.Windows.Forms.DataGridViewTextBoxColumn Country;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnHome;
     }
 }

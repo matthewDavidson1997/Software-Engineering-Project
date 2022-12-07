@@ -44,6 +44,7 @@ namespace Relationship_manager_administration_system
             this.Country = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblIdeaCreatorID = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
+            this.btnHome = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -173,16 +174,28 @@ namespace Relationship_manager_administration_system
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // btnHome
+            // 
+            this.btnHome.Location = new System.Drawing.Point(12, 376);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(115, 62);
+            this.btnHome.TabIndex = 3;
+            this.btnHome.Text = "Home";
+            this.btnHome.UseVisualStyleBackColor = true;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+            // 
             // ShowMyIdeasScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnHome);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.lblIdeaCreatorID);
             this.Controls.Add(this.dataGridView1);
             this.Name = "ShowMyIdeasScreen";
             this.Text = "ShowMyIdeasScreen";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ShowMyIdeasScreen_Closing);
             this.Load += new System.EventHandler(this.ShowMyIdeasScreen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -207,5 +220,6 @@ namespace Relationship_manager_administration_system
         private System.Windows.Forms.DataGridViewTextBoxColumn MinorSector;
         private System.Windows.Forms.DataGridViewTextBoxColumn Region;
         private System.Windows.Forms.DataGridViewTextBoxColumn Country;
+        private System.Windows.Forms.Button btnHome;
     }
 }

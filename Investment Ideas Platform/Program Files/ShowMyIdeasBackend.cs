@@ -20,5 +20,15 @@ namespace Relationship_manager_administration_system
             }
 
         }
+
+        public static void goHome(int icID, Form passedForm) {
+            DataTable ic = new DataTable();
+            ic = DatabaseClass.getIC(icID);
+            User user = new User(icID, ic.Rows[0][1].ToString(), ic.Rows[0][2].ToString(), "Idea Creator");
+            IdeaCreatorHome ideaCreatorHome = new IdeaCreatorHome(user);
+            ideaCreatorHome.Show();
+            passedForm.Dispose();
+            passedForm.Hide();
+        }
     }
 }

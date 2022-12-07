@@ -23,5 +23,12 @@ namespace Relationship_manager_administration_system
             passedForm.Close();
         }
 
+        public static void logOut(Form passedForm) {
+            LoginScreen loginScreen = new LoginScreen();
+            loginScreen.Show();
+            passedForm.Dispose();
+            passedForm.Close();
+        }
+
     }
 }

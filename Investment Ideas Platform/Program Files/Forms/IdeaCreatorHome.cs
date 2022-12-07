@@ -23,11 +23,6 @@ namespace Relationship_manager_administration_system
             ExitBackend.buttonClicked(this);
         }
 
-        private void IdeaCreatorHome_Closing(object sender, FormClosingEventArgs e)
-        {
-            ExitBackend.exitProgram();
-        }
-
         private void IdeaCreatorHome_Load(object sender, EventArgs e)
         {
             IdeaCreatorHomeBackend.IdeaCreatorHome_Load(lblIdeaCreatorLoggedIn, user.id);

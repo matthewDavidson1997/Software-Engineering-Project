@@ -17,7 +17,7 @@ namespace Relationship_manager_administration_system
         }
         public static void exitProgram() {
            //  exits program
-            Application.Exit();
+           Application.Exit();
          }
 
         public static void cancelExit(Form passedForm, ExitPopUp exitPopUp) {

@@ -52,10 +52,10 @@ namespace Relationship_manager_administration_system
             // 
             // cbAccountType
             // 
-            this.cbAccountType.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.cbAccountType.Cursor = System.Windows.Forms.Cursors.Default;
             this.cbAccountType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbAccountType.Items.AddRange(new object[] {
-            "Admin",
+            "Idea Creator",
             "Relationship Manager"});
             this.cbAccountType.Location = new System.Drawing.Point(304, 152);
             this.cbAccountType.Name = "cbAccountType";
@@ -134,7 +134,7 @@ namespace Relationship_manager_administration_system
             this.lblLoginFail.Text = "Login Failed: Incorrect credentials or account type";
             this.lblLoginFail.Visible = false;
             // 
-            // Form1
+            // LoginScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -149,7 +149,7 @@ namespace Relationship_manager_administration_system
             this.Controls.Add(this.lblAccountType);
             this.Controls.Add(this.cbAccountType);
             this.Controls.Add(this.lblTitle);
-            this.Name = "Form1";
+            this.Name = "LoginScreen";
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();

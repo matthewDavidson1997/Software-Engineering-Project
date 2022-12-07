@@ -17,14 +17,15 @@ namespace Relationship_manager_administration_system
             InitializeComponent();
         }
 
-        // runs if exi button is clicked
         private void btnExit_Click(object sender, EventArgs e)
         {
+            // runs backend code to exit code
             ExitBackend.buttonClicked(this);
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            // runs backend code to start login process
             RMLoginBackend.rmLoginBackend(this, lblLoginFail, cbAccountType, txtEmail, txtPassword);
         }
     }

@@ -34,6 +34,7 @@ namespace Relationship_manager_administration_system
             this.btnMyIdeas = new System.Windows.Forms.Button();
             this.btnNewIdeas = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnLogOut = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblIdeaCreatorLoggedIn
@@ -84,11 +85,22 @@ namespace Relationship_manager_administration_system
             this.label1.TabIndex = 4;
             this.label1.Text = "Idea Creator Home";
             // 
+            // btnLogOut
+            // 
+            this.btnLogOut.Location = new System.Drawing.Point(12, 10);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Size = new System.Drawing.Size(113, 62);
+            this.btnLogOut.TabIndex = 5;
+            this.btnLogOut.Text = "Log Out";
+            this.btnLogOut.UseVisualStyleBackColor = true;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
+            // 
             // IdeaCreatorHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnLogOut);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnNewIdeas);
             this.Controls.Add(this.btnMyIdeas);
@@ -109,5 +121,6 @@ namespace Relationship_manager_administration_system
         private System.Windows.Forms.Button btnMyIdeas;
         private System.Windows.Forms.Button btnNewIdeas;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnLogOut;
     }
 }

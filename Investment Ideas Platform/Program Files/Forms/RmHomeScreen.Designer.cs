@@ -34,6 +34,7 @@ namespace Relationship_manager_administration_system
             this.btnClients = new System.Windows.Forms.Button();
             this.btnPurchaseIdeas = new System.Windows.Forms.Button();
             this.lblLoggedInRmId = new System.Windows.Forms.Label();
+            this.btnLogOut = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -84,11 +85,22 @@ namespace Relationship_manager_administration_system
             this.lblLoggedInRmId.TabIndex = 5;
             this.lblLoggedInRmId.Text = "Logged In RM ID:";
             // 
+            // btnLogOut
+            // 
+            this.btnLogOut.Location = new System.Drawing.Point(659, 389);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Size = new System.Drawing.Size(129, 49);
+            this.btnLogOut.TabIndex = 6;
+            this.btnLogOut.Text = "Log Out";
+            this.btnLogOut.UseVisualStyleBackColor = true;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
+            // 
             // RmHomeScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnLogOut);
             this.Controls.Add(this.lblLoggedInRmId);
             this.Controls.Add(this.btnPurchaseIdeas);
             this.Controls.Add(this.btnClients);
@@ -110,5 +122,6 @@ namespace Relationship_manager_administration_system
         private System.Windows.Forms.Button btnClients;
         private System.Windows.Forms.Button btnPurchaseIdeas;
         private System.Windows.Forms.Label lblLoggedInRmId;
+        private System.Windows.Forms.Button btnLogOut;
     }
 }

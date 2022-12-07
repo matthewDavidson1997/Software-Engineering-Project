@@ -205,5 +205,15 @@ namespace Relationship_manager_administration_system
 			}
 
 		}
+
+		public static void goHome(int rmID, Form passedForm) {
+			DataTable rm = new DataTable();
+			rm = DatabaseClass.getIC(rmID);
+			User user = new User(rmID, rm.Rows[0][1].ToString(), rm.Rows[0][2].ToString(), "Relationship Mnager");
+			RmHomeScreen rmHomeScreen = new RmHomeScreen(user);
+			rmHomeScreen.Show();
+			passedForm.Dispose();
+			passedForm.Hide();
+		}
 	}
 }

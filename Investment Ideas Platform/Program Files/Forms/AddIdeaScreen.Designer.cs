@@ -57,6 +57,7 @@ namespace Relationship_manager_administration_system
             this.btnExit = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.cbCurrency = new System.Windows.Forms.ComboBox();
+            this.btnHome = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -361,11 +362,22 @@ namespace Relationship_manager_administration_system
             this.cbCurrency.Size = new System.Drawing.Size(177, 28);
             this.cbCurrency.TabIndex = 36;
             // 
+            // btnHome
+            // 
+            this.btnHome.Location = new System.Drawing.Point(612, 432);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(109, 56);
+            this.btnHome.TabIndex = 37;
+            this.btnHome.Text = "Home";
+            this.btnHome.UseVisualStyleBackColor = true;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+            // 
             // AddIdeaScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(859, 500);
+            this.Controls.Add(this.btnHome);
             this.Controls.Add(this.cbCurrency);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.btnExit);
@@ -396,6 +408,7 @@ namespace Relationship_manager_administration_system
             this.Controls.Add(this.label1);
             this.Name = "AddIdeaScreen";
             this.Text = "AddIdeaScreen";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddIdeaScreen_Closing);
             this.Load += new System.EventHandler(this.AddIdeaScreen_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -432,5 +445,6 @@ namespace Relationship_manager_administration_system
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ComboBox cbCurrency;
+        private System.Windows.Forms.Button btnHome;
     }
 }

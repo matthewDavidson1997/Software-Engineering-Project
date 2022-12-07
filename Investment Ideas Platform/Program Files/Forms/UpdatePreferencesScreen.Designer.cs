@@ -45,6 +45,7 @@ namespace Relationship_manager_administration_system
             this.btnExit = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.lblLoggedInRm = new System.Windows.Forms.Label();
+            this.btnHome = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cbMajorSector
@@ -238,11 +239,22 @@ namespace Relationship_manager_administration_system
             this.lblLoggedInRm.TabIndex = 15;
             this.lblLoggedInRm.Text = "label7";
             // 
+            // btnHome
+            // 
+            this.btnHome.Location = new System.Drawing.Point(165, 389);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(103, 49);
+            this.btnHome.TabIndex = 16;
+            this.btnHome.Text = "Home";
+            this.btnHome.UseVisualStyleBackColor = true;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+            // 
             // UpdatePreferencesScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnHome);
             this.Controls.Add(this.lblLoggedInRm);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnExit);
@@ -261,8 +273,8 @@ namespace Relationship_manager_administration_system
             this.Controls.Add(this.cbMajorSector);
             this.Name = "UpdatePreferencesScreen";
             this.Text = "UpdatePreferencesScreen";
-            this.Load += new System.EventHandler(this.UpdatePreferencesScreen_Load);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UpdatePreferencesScreen_Closing);
+            this.Load += new System.EventHandler(this.UpdatePreferencesScreen_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -286,5 +298,6 @@ namespace Relationship_manager_administration_system
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Label lblLoggedInRm;
+        private System.Windows.Forms.Button btnHome;
     }
 }

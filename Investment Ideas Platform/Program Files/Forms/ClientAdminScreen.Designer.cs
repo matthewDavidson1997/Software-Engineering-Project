@@ -61,6 +61,7 @@ namespace Relationship_manager_administration_system
             this.label6 = new System.Windows.Forms.Label();
             this.btnInsert = new System.Windows.Forms.Button();
             this.btnUpdatePreferences = new System.Windows.Forms.Button();
+            this.btnHome = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClients)).BeginInit();
             this.SuspendLayout();
             // 
@@ -316,11 +317,22 @@ namespace Relationship_manager_administration_system
             this.btnUpdatePreferences.UseVisualStyleBackColor = true;
             this.btnUpdatePreferences.Click += new System.EventHandler(this.btnUpdatePreferences_Click);
             // 
+            // btnHome
+            // 
+            this.btnHome.Location = new System.Drawing.Point(490, 420);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(118, 53);
+            this.btnHome.TabIndex = 20;
+            this.btnHome.Text = "Home";
+            this.btnHome.UseVisualStyleBackColor = true;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+            // 
             // ClientAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(811, 485);
+            this.Controls.Add(this.btnHome);
             this.Controls.Add(this.btnUpdatePreferences);
             this.Controls.Add(this.btnInsert);
             this.Controls.Add(this.label6);
@@ -379,5 +391,6 @@ namespace Relationship_manager_administration_system
         private DataGridViewTextBoxColumn ContactNumber;
         private Button btnInsert;
         private Button btnUpdatePreferences;
+        private Button btnHome;
     }
 }

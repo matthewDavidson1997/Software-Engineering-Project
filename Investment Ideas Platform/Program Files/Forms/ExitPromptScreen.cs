@@ -21,15 +21,18 @@ namespace Relationship_manager_administration_system
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            // runs backend to cancel the exit
             ExitBackend.cancelExit(form, this);
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
+            // runs backend to exit program
             ExitBackend.exitProgram();
         }
 
         private void exitPopUp_Closing(object sender, FormClosingEventArgs e) {
+            // runs backend code to run just incase it closes unexpectedly
             ExitBackend.exitWindowClosedUnexpectedly(form);
         }
     }

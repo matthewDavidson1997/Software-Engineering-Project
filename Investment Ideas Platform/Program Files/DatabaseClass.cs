@@ -175,6 +175,24 @@ namespace Relationship_manager_administration_system
             adapter.Fill(rm);
             connection.Close();
             return rm;
+    
+        }
+        public static void updateIdea(int icid, string title, Idea idea)
+        {
+            connection.Open();
+            // https://stackoverflow.com/questions/12393665/the-conversion-of-a-varchar-data-type-to-a-datetime-data-type-resulted-in-an-out
+            var sqlFormattedDate = idea.expiary.Date.ToString("yyyy-MM-dd HH:mm:ss");
+            SqlCommand command = new SqlCommand($"UPDATE [dbo].[tblIdeas] SET Summary='{idea.summary}', ExpiryDate='{sqlFormattedDate}', IdeaCreator={icid}, LongDescription='{idea.description}', RiskRating={idea.riskRaiting}, ProductType='{idea.productType}', Instruments='{idea.instrument}', Currency='{idea.currency}', MajorSector='{idea.majorSector}', MinorSector='{idea.minorSector}', Country='{idea.country}', Region='{idea.region}' WHERE title='{title}'", connection);
+            command.ExecuteNonQuery();
+            connection.Close();
+        }
+
+        public static void deleteIdea(string title)
+        {
+            connection.Open();
+            SqlCommand command = new SqlCommand($"DELETE FROM [dbo].[tblIdeas] WHERE Title='{title}'", connection);
+            command.ExecuteNonQuery();
+            connection.Close();
         }
     }
 }

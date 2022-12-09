@@ -28,6 +28,14 @@ namespace Relationship_manager_administration_system
             loginScreen.Show();
             passedForm.Dispose();
             passedForm.Close();
+
+        }
+        public static void goToUpdate(Form passedForm, int id)
+        {
+            Form1 form1 = new Form1(id);
+            form1.Show();
+            passedForm.Dispose();
+            passedForm.Hide();
         }
 
     }

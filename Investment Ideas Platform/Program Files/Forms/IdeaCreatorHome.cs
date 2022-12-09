@@ -49,5 +49,10 @@ namespace Relationship_manager_administration_system
             // runs the backend code to logout of the system
             IdeaCreatorHomeBackend.logOut(this);
         }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            IdeaCreatorHomeBackend.goToUpdate(this, user.id);
+        }
     }
 }

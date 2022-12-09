@@ -19,6 +19,9 @@
     <Compile Update="Forms\PurchaseProducts.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\RemoveIdeaScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\RmHomeScreen.cs">
       <SubType>Form</SubType>
     </Compile>

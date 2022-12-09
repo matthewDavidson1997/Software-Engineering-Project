@@ -176,5 +176,23 @@ namespace Relationship_manager_administration_system
             connection.Close();
             return rm;
         }
+
+        public static DataTable getIdeas()
+        {
+            connection.Open();
+            DataTable ideas = new DataTable();
+            SqlDataAdapter ideasAdapter = new SqlDataAdapter(@"SELECT Title, Summary, ExpiryDate, LongDescription, RiskRating, ProductType, Instruments, Currency, MajorSector, MinorSector, Country, Region FROM [dbo].[tblIdeas] WHERE ownedBy IS NOT NULL", connection);
+            ideasAdapter.Fill(ideas);
+            connection.Close();
+            return ideas;
+        }
+
+        public static void removeIdea(string title)
+        {
+            connection.Open();
+            SqlCommand command = new SqlCommand("UPDATE [dbo].[tblIdeas] SET ownedBy = NULL WHERE Title= '" + title + "'", connection);
+            command.ExecuteNonQuery();
+            connection.Close();
+        }
     }
 }

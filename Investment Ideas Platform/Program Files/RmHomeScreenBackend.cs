@@ -23,5 +23,13 @@ namespace Relationship_manager_administration_system
             passedForm.Hide();
         }
 
+        public static void gotoremoveidea(Form passedForm, int id)
+        {
+            RemoveIdeaScreen removeIdeaScreen = new RemoveIdeaScreen(id);
+            removeIdeaScreen.Show();
+            passedForm.Dispose();
+            passedForm.Hide();
+        }
+
     }
 }

@@ -54,5 +54,10 @@ namespace Relationship_manager_administration_system
             // runs the backend code to logout
             IdeaCreatorHomeBackend.logOut(this);
         }
+
+        private void BTNRemoveIdea_Click(object sender, EventArgs e)
+        {
+            RmHomeScreenBackend.gotoremoveidea(this, user.id);
+        }
     }
 }

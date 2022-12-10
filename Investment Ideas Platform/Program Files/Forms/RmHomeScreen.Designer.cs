@@ -36,6 +36,7 @@ namespace Relationship_manager_administration_system
             this.lblLoggedInRmId = new System.Windows.Forms.Label();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.BTNRemoveIdea = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -111,11 +112,22 @@ namespace Relationship_manager_administration_system
             this.BTNRemoveIdea.UseVisualStyleBackColor = true;
             this.BTNRemoveIdea.Click += new System.EventHandler(this.BTNRemoveIdea_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(272, 233);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(128, 35);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "See Idea Clients";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // RmHomeScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(700, 338);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.BTNRemoveIdea);
             this.Controls.Add(this.btnLogOut);
             this.Controls.Add(this.lblLoggedInRmId);
@@ -142,5 +154,6 @@ namespace Relationship_manager_administration_system
         private System.Windows.Forms.Label lblLoggedInRmId;
         private System.Windows.Forms.Button btnLogOut;
         private System.Windows.Forms.Button BTNRemoveIdea;
+        private System.Windows.Forms.Button button1;
     }
 }

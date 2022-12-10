@@ -212,5 +212,15 @@ namespace Relationship_manager_administration_system
             command.ExecuteNonQuery();
             connection.Close();
         }
+
+        public static DataTable getShortIdea()
+        {
+            connection.Open();
+            DataTable ideas = new DataTable();
+            SqlDataAdapter ideasAdapter = new SqlDataAdapter(@"SELECT Title, Summary, LongDescription, ownedBy FROM [dbo].[tblIdeas] WHERE ownedBy IS NOT NULL", connection);
+            ideasAdapter.Fill(ideas);
+            connection.Close();
+            return ideas;
+        }
     }
 }

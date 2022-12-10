@@ -63,11 +63,12 @@ namespace Relationship_manager_administration_system
             this.MajorSector,
             this.MinorSector,
             this.Region});
-            this.dgvIdeas.Location = new System.Drawing.Point(-2, 44);
+            this.dgvIdeas.Location = new System.Drawing.Point(-2, 33);
+            this.dgvIdeas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvIdeas.Name = "dgvIdeas";
             this.dgvIdeas.RowHeadersWidth = 51;
             this.dgvIdeas.RowTemplate.Height = 29;
-            this.dgvIdeas.Size = new System.Drawing.Size(848, 188);
+            this.dgvIdeas.Size = new System.Drawing.Size(742, 141);
             this.dgvIdeas.TabIndex = 0;
             this.dgvIdeas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvIdeas_Mouse_Click);
             // 
@@ -151,16 +152,17 @@ namespace Relationship_manager_administration_system
             // lblProductTitle
             // 
             this.lblProductTitle.AutoSize = true;
-            this.lblProductTitle.Location = new System.Drawing.Point(13, 239);
+            this.lblProductTitle.Location = new System.Drawing.Point(11, 179);
             this.lblProductTitle.Name = "lblProductTitle";
-            this.lblProductTitle.Size = new System.Drawing.Size(0, 20);
+            this.lblProductTitle.Size = new System.Drawing.Size(0, 15);
             this.lblProductTitle.TabIndex = 1;
             // 
             // btnRemoveIdea
             // 
-            this.btnRemoveIdea.Location = new System.Drawing.Point(370, 369);
+            this.btnRemoveIdea.Location = new System.Drawing.Point(324, 277);
+            this.btnRemoveIdea.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRemoveIdea.Name = "btnRemoveIdea";
-            this.btnRemoveIdea.Size = new System.Drawing.Size(102, 49);
+            this.btnRemoveIdea.Size = new System.Drawing.Size(89, 37);
             this.btnRemoveIdea.TabIndex = 3;
             this.btnRemoveIdea.Text = "Remove Idea";
             this.btnRemoveIdea.UseVisualStyleBackColor = true;
@@ -168,9 +170,10 @@ namespace Relationship_manager_administration_system
             // 
             // BTNExit
             // 
-            this.BTNExit.Location = new System.Drawing.Point(730, 369);
+            this.BTNExit.Location = new System.Drawing.Point(12, 277);
+            this.BTNExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BTNExit.Name = "BTNExit";
-            this.BTNExit.Size = new System.Drawing.Size(102, 49);
+            this.BTNExit.Size = new System.Drawing.Size(89, 37);
             this.BTNExit.TabIndex = 4;
             this.BTNExit.Text = "Exit";
             this.BTNExit.UseVisualStyleBackColor = true;
@@ -178,9 +181,10 @@ namespace Relationship_manager_administration_system
             // 
             // BTNHome
             // 
-            this.BTNHome.Location = new System.Drawing.Point(13, 369);
+            this.BTNHome.Location = new System.Drawing.Point(637, 274);
+            this.BTNHome.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BTNHome.Name = "BTNHome";
-            this.BTNHome.Size = new System.Drawing.Size(102, 49);
+            this.BTNHome.Size = new System.Drawing.Size(89, 37);
             this.BTNHome.TabIndex = 5;
             this.BTNHome.Text = "Home";
             this.BTNHome.UseVisualStyleBackColor = true;
@@ -188,14 +192,15 @@ namespace Relationship_manager_administration_system
             // 
             // RemoveIdeaScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(844, 430);
+            this.ClientSize = new System.Drawing.Size(738, 322);
             this.Controls.Add(this.BTNHome);
             this.Controls.Add(this.BTNExit);
             this.Controls.Add(this.btnRemoveIdea);
             this.Controls.Add(this.lblProductTitle);
             this.Controls.Add(this.dgvIdeas);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "RemoveIdeaScreen";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);

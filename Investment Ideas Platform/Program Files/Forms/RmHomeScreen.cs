@@ -59,5 +59,13 @@ namespace Relationship_manager_administration_system
         {
             RmHomeScreenBackend.gotoremoveidea(this, user.id);
         }
+
+        private void btnSeeIdeaClients_Click(object sender, EventArgs e)
+        {
+            Form2 form2 = new Form2(user);
+            form2.Show();
+            this.Dispose();
+            this.Hide();
+        }
     }
 }

@@ -62,7 +62,7 @@ namespace Relationship_manager_administration_system
 
         private void btnSeeIdeaClients_Click(object sender, EventArgs e)
         {
-            Form2 form2 = new Form2(user);
+            viewIdeaClients form2 = new viewIdeaClients(user);
             form2.Show();
             this.Dispose();
             this.Hide();

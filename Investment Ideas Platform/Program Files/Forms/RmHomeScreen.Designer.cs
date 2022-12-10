@@ -41,17 +41,18 @@ namespace Relationship_manager_administration_system
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(284, 36);
+            this.label1.Location = new System.Drawing.Point(248, 27);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(199, 20);
+            this.label1.Size = new System.Drawing.Size(158, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "Relationship Manager Home";
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(13, 389);
+            this.btnExit.Location = new System.Drawing.Point(11, 292);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(129, 49);
+            this.btnExit.Size = new System.Drawing.Size(113, 37);
             this.btnExit.TabIndex = 1;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
@@ -59,9 +60,10 @@ namespace Relationship_manager_administration_system
             // 
             // btnClients
             // 
-            this.btnClients.Location = new System.Drawing.Point(311, 152);
+            this.btnClients.Location = new System.Drawing.Point(272, 114);
+            this.btnClients.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnClients.Name = "btnClients";
-            this.btnClients.Size = new System.Drawing.Size(146, 47);
+            this.btnClients.Size = new System.Drawing.Size(128, 35);
             this.btnClients.TabIndex = 2;
             this.btnClients.Text = "Clients";
             this.btnClients.UseVisualStyleBackColor = true;
@@ -69,28 +71,30 @@ namespace Relationship_manager_administration_system
             // 
             // btnPurchaseIdeas
             // 
-            this.btnPurchaseIdeas.Location = new System.Drawing.Point(311, 205);
+            this.btnPurchaseIdeas.Location = new System.Drawing.Point(272, 154);
+            this.btnPurchaseIdeas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnPurchaseIdeas.Name = "btnPurchaseIdeas";
-            this.btnPurchaseIdeas.Size = new System.Drawing.Size(146, 47);
+            this.btnPurchaseIdeas.Size = new System.Drawing.Size(128, 35);
             this.btnPurchaseIdeas.TabIndex = 3;
-            this.btnPurchaseIdeas.Text = "Pruchase Ideas";
+            this.btnPurchaseIdeas.Text = "Purchase Ideas";
             this.btnPurchaseIdeas.UseVisualStyleBackColor = true;
             this.btnPurchaseIdeas.Click += new System.EventHandler(this.btnPurchaseIdeas_Click);
             // 
             // lblLoggedInRmId
             // 
             this.lblLoggedInRmId.AutoSize = true;
-            this.lblLoggedInRmId.Location = new System.Drawing.Point(12, 9);
+            this.lblLoggedInRmId.Location = new System.Drawing.Point(10, 7);
             this.lblLoggedInRmId.Name = "lblLoggedInRmId";
-            this.lblLoggedInRmId.Size = new System.Drawing.Size(124, 20);
+            this.lblLoggedInRmId.Size = new System.Drawing.Size(98, 15);
             this.lblLoggedInRmId.TabIndex = 5;
             this.lblLoggedInRmId.Text = "Logged In RM ID:";
             // 
             // btnLogOut
             // 
-            this.btnLogOut.Location = new System.Drawing.Point(659, 389);
+            this.btnLogOut.Location = new System.Drawing.Point(577, 292);
+            this.btnLogOut.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogOut.Name = "btnLogOut";
-            this.btnLogOut.Size = new System.Drawing.Size(129, 49);
+            this.btnLogOut.Size = new System.Drawing.Size(113, 37);
             this.btnLogOut.TabIndex = 6;
             this.btnLogOut.Text = "Log Out";
             this.btnLogOut.UseVisualStyleBackColor = true;
@@ -98,9 +102,10 @@ namespace Relationship_manager_administration_system
             // 
             // BTNRemoveIdea
             // 
-            this.BTNRemoveIdea.Location = new System.Drawing.Point(311, 258);
+            this.BTNRemoveIdea.Location = new System.Drawing.Point(272, 194);
+            this.BTNRemoveIdea.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BTNRemoveIdea.Name = "BTNRemoveIdea";
-            this.BTNRemoveIdea.Size = new System.Drawing.Size(146, 47);
+            this.BTNRemoveIdea.Size = new System.Drawing.Size(128, 35);
             this.BTNRemoveIdea.TabIndex = 7;
             this.BTNRemoveIdea.Text = "Remove Idea";
             this.BTNRemoveIdea.UseVisualStyleBackColor = true;
@@ -108,9 +113,9 @@ namespace Relationship_manager_administration_system
             // 
             // RmHomeScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(700, 338);
             this.Controls.Add(this.BTNRemoveIdea);
             this.Controls.Add(this.btnLogOut);
             this.Controls.Add(this.lblLoggedInRmId);
@@ -118,6 +123,7 @@ namespace Relationship_manager_administration_system
             this.Controls.Add(this.btnClients);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "RmHomeScreen";
             this.Text = "RmHomeScreen";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RmHomeScreen_Closing);
